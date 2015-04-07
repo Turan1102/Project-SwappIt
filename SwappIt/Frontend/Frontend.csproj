@@ -3663,6 +3663,12 @@
   <ItemGroup>
     <Folder Include="plugins\jquery-file-upload\server\php\files\thumbnail\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Backend\Backend.csproj">
+      <Project>{3bdfc3b7-897f-486f-8af2-c26ec067dacf}</Project>
+      <Name>Backend</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Backend.Index" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="admin.master.cs" Inherits="Backend.admin" %>
 
 <!DOCTYPE html>
 <!-- 
@@ -1347,7 +1347,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div>
 			</div>
 			<!-- END STYLE CUSTOMIZER -->
-			<!-- BEGIN PAGE HEADER-->
+			<!-- BEGIN PAGE HEADER-->           
 			<div class="page-bar">
 				<ul class="page-breadcrumb">
 					<li>
@@ -1358,16 +1358,15 @@ License: You must have a valid license purchased only from themeforest(the above
 					<li>
 						<a href="#">Dashboard</a>
 					</li>
-				</ul>
+				</ul> 
 				<!--<div class="page-toolbar">
 					<div id="dashboard-report-range" class="pull-right tooltips btn btn-sm btn-default" data-container="body" data-placement="bottom" data-original-title="Change dashboard date range">
 						<i class="icon-calendar"></i>&nbsp; <span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp; <i class="fa fa-angle-down"></i>
 					</div>
 				</div> -->
 			</div>
-			<h3 class="page-title">
-			SwappIt <small>Byt vagter på farten!</small>
-			</h3>
+            <asp:ContentPlaceHolder ID="pagetitle" runat="server">
+			</asp:ContentPlaceHolder>
 			<!-- END PAGE HEADER-->
 			<!-- BEGIN DASHBOARD STATS 
 			<div class="row">
@@ -4189,22 +4188,23 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="scripts/tasks.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
-jQuery(document).ready(function() {    
-   Metronic.init(); // init metronic core componets
-   Layout.init(); // init layout
-   QuickSidebar.init(); // init quick sidebar
-Demo.init(); // init demo features
-   Index.init();   
-   Index.initDashboardDaterange();
-   Index.initJQVMAP(); // init index page's custom scripts
-   Index.initCalendar(); // init index page's custom scripts
-   Index.initCharts(); // init index page's custom scripts
-   Index.initChat();
-   Index.initMiniCharts();
-   Tasks.initDashboardWidget();
-});
+    jQuery(document).ready(function () {
+        Metronic.init(); // init metronic core componets
+        Layout.init(); // init layout
+        QuickSidebar.init(); // init quick sidebar
+        Demo.init(); // init demo features
+        Index.init();
+        Index.initDashboardDaterange();
+        Index.initJQVMAP(); // init index page's custom scripts
+        Index.initCalendar(); // init index page's custom scripts
+        Index.initCharts(); // init index page's custom scripts
+        Index.initChat();
+        Index.initMiniCharts();
+        Tasks.initDashboardWidget();
+    });
 </script>
 <!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->
 </html>
+

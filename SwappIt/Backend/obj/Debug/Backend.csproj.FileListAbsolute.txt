@@ -1,0 +1,6 @@
+C:\Users\Babu110\Source\Repos\Project-SwappIt\SwappIt\Backend\bin\Backend.dll.config
+C:\Users\Babu110\Source\Repos\Project-SwappIt\SwappIt\Backend\bin\Backend.dll
+C:\Users\Babu110\Source\Repos\Project-SwappIt\SwappIt\Backend\bin\Backend.pdb
+C:\Users\Babu110\Source\Repos\Project-SwappIt\SwappIt\Backend\obj\Debug\Backend.csprojResolveAssemblyReference.cache
+C:\Users\Babu110\Source\Repos\Project-SwappIt\SwappIt\Backend\obj\Debug\Backend.dll
+C:\Users\Babu110\Source\Repos\Project-SwappIt\SwappIt\Backend\obj\Debug\Backend.pdb

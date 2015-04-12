@@ -3529,6 +3529,7 @@
     <Content Include="scripts\ui-toastr.js" />
     <Content Include="scripts\ui-tree.js" />
     <Content Include="TestMaster.aspx" />
+    <Content Include="UserEdit.aspx" />
     <Content Include="UserList.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -3566,6 +3567,13 @@
     </Compile>
     <Compile Include="TestMaster.aspx.designer.cs">
       <DependentUpon>TestMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserEdit.aspx.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserEdit.aspx.designer.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserList.aspx.cs">
       <DependentUpon>UserList.aspx</DependentUpon>

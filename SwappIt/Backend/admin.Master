@@ -781,6 +781,9 @@ License: You must have a valid license purchased only from themeforest(the above
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 			</asp:ContentPlaceHolder>
 			<!-- END PAGE HEADER-->
+
+            <asp:ContentPlaceHolder ID="test" runat="server">
+			</asp:ContentPlaceHolder>
 			<!-- BEGIN DASHBOARD STATS 
 			<div class="row">
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">

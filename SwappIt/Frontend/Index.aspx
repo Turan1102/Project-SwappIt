@@ -66,7 +66,7 @@ License: You must have a valid license purchased only from themeforest (the abov
 </head>
 <!--DOC: menu-always-on-top class to the body element to set menu on top -->
 <body>
-  <!-- BEGIN STYLE CUSTOMIZER DET ER HER TEMA KONFIGURATIONEN TIL HØJRE KOMMER FREM SÅ MAN KAN ÆNDRE TEMA FARVE
+ <!-- BEGIN STYLE CUSTOMIZER DET ER HER TEMA KONFIGURATIONEN TIL HØJRE KOMMER FREM SÅ MAN KAN ÆNDRE TEMA FARVE
   <div class="color-panel">
     <div class="color-mode-icons icon-color"></div>
     <div class="color-mode-icons icon-color-close"></div>
@@ -111,7 +111,10 @@ License: You must have a valid license purchased only from themeforest (the abov
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#benefits">Benefits</a></li>            
             <li><a href="#prices">Pricing</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">Contact</a></li>            
+                  <li><a href="#" class="btn btn-sm blue" style="position:absolute; right:-14%;">
+                        <i class="fa fa-sign-in"></i> Login
+                      </a></li>
           </ul>
         </div>
         <!-- Navigation END -->

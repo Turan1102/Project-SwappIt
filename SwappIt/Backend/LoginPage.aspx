@@ -76,13 +76,20 @@ License: You must have a valid license purchased only from themeforest(the above
 	<form class="login-form" action="LoginPage.aspx" method="post">
 		<h3 class="form-title">Login til konto</h3>
 		<div class="alert alert-danger display-hide">
-			<button class="close" data-close="alert"></button>
-			<span>
-			Indtast venligst brugernavn og adgangskode. </span>
-		</div>
-		<div class="form-group">
-			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-			<label class="control-label visible-ie8 visible-ie9">Brugernavn</label>
+            <button class="close" data-close="alert"></button>
+            <span>Indtast venligst brugernavn og adgangskode. </span>
+        </div>
+        <div class="form-group">
+            <!--Butiknummer mangler validering og ikon-->
+            <label class="control-label visible-ie8 visible-ie9">Butiknummer</label>
+            <div class="input-icon">
+                <i class="fa fa-user"></i>
+                <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Butik" name="shopId" />
+            </div>
+        </div>
+        <div class="form-group">
+            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+            <label class="control-label visible-ie8 visible-ie9">Brugernavn</label>
 			<div class="input-icon">
 				<i class="fa fa-user"></i>
 				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Brugernavn" name="username"/>

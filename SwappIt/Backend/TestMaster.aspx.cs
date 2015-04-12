@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Backend.code;
 
 namespace Backend
 {
@@ -11,7 +12,8 @@ namespace Backend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            UserInfo ui = (UserInfo)Session["UserInfo"];
+            TestText.Text = ui.Id;
         }
     }
 }

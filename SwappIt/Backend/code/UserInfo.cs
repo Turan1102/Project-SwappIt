@@ -9,15 +9,30 @@ namespace Backend.code
     public class UserInfo
     {
         string id;
+        string siid;
+
         Database db = new Database();
 
-        public UserInfo(string id)
+        public UserInfo(string id, string siid)
         {
             this.id = id;
+            this.siid = siid;
         }
 
         public UserInfo()
         {
+        }
+
+        public string Id
+        {
+            get { return id; }
+            // set { id = value; }
+        }
+
+        public string Siid
+        {
+            get { return siid; }
+            set { siid = value; }
         }
 
         public Boolean haveRights(string right)

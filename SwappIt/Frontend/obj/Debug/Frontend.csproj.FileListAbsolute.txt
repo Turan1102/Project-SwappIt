@@ -6,3 +6,11 @@ C:\Users\Babu110\Source\Repos\Project-SwappIt\SwappIt\Frontend\bin\Backend.pdb
 C:\Users\Babu110\Source\Repos\Project-SwappIt\SwappIt\Frontend\obj\Debug\Frontend.csprojResolveAssemblyReference.cache
 C:\Users\Babu110\Source\Repos\Project-SwappIt\SwappIt\Frontend\obj\Debug\Frontend.dll
 C:\Users\Babu110\Source\Repos\Project-SwappIt\SwappIt\Frontend\obj\Debug\Frontend.pdb
+C:\Users\Mikail Tolga Turan\Desktop\GitHub\Project-SwappIt\SwappIt\Frontend\bin\Frontend.dll.config
+C:\Users\Mikail Tolga Turan\Desktop\GitHub\Project-SwappIt\SwappIt\Frontend\bin\Frontend.dll
+C:\Users\Mikail Tolga Turan\Desktop\GitHub\Project-SwappIt\SwappIt\Frontend\bin\Frontend.pdb
+C:\Users\Mikail Tolga Turan\Desktop\GitHub\Project-SwappIt\SwappIt\Frontend\bin\Backend.dll
+C:\Users\Mikail Tolga Turan\Desktop\GitHub\Project-SwappIt\SwappIt\Frontend\bin\Backend.pdb
+C:\Users\Mikail Tolga Turan\Desktop\GitHub\Project-SwappIt\SwappIt\Frontend\obj\Debug\Frontend.csprojResolveAssemblyReference.cache
+C:\Users\Mikail Tolga Turan\Desktop\GitHub\Project-SwappIt\SwappIt\Frontend\obj\Debug\Frontend.dll
+C:\Users\Mikail Tolga Turan\Desktop\GitHub\Project-SwappIt\SwappIt\Frontend\obj\Debug\Frontend.pdb

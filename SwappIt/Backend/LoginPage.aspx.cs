@@ -21,11 +21,18 @@ namespace Backend
                 if (Request["username"] != null && Request["password"] != null)
                 {
                     string RecordId = Login(Request["username"].ToString(), Request["password"].ToString(), Request["shopId"].ToString());
-                    // string RecordId = "1"; // til at teste
+
                     if (RecordId != null)
                     {
-                        Session["UserInfo"] = new UserInfo(RecordId);
-                        Response.Redirect("TestMaster.aspx");
+                        Session["UserInfo"] = new UserInfo(RecordId, Request["shopId"].ToString());
+                        if (Session["StartPage"] != null)
+                        {
+                            Response.Redirect((string)Session["StartPage"]);
+                        }
+                        else
+                        {
+                            Response.Redirect("TestMaster.aspx");
+                        }
                     }
 
                 }

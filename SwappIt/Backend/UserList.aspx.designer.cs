@@ -10,24 +10,24 @@
 namespace Backend {
     
     
-    public partial class admin {
+    public partial class UserList {
         
         /// <summary>
-        /// pagetitle control.
+        /// TestText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder pagetitle;
+        protected global::System.Web.UI.WebControls.Literal TestText;
         
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// tableOut control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Literal tableOut;
     }
 }

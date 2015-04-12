@@ -778,6 +778,8 @@ License: You must have a valid license purchased only from themeforest(the above
 			</div>
             <asp:ContentPlaceHolder ID="pagetitle" runat="server">
 			</asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+			</asp:ContentPlaceHolder>
 			<!-- END PAGE HEADER-->
 
             <asp:ContentPlaceHolder ID="test" runat="server">

@@ -73,55 +73,45 @@ namespace Backend
 
         public void ExecuteUpdate(string SQL, List<SqlParameter> ListParms)
         {
-            if (!this.ContainsForbiddenSql(SQL))
-            {
-                SqlParameter[] Parms = ListParms.ToArray();
-                SqlCommand tmpCommand = new SqlCommand(SQL, myConnection);
-                tmpCommand.Parameters.AddRange(Parms);
+            SqlParameter[] Parms = ListParms.ToArray();
+            SqlCommand tmpCommand = new SqlCommand(SQL, myConnection);
+            tmpCommand.Parameters.AddRange(Parms);
 
-                if (myConnection.State != ConnectionState.Open)
-                    myConnection.Open();
+            if (myConnection.State != ConnectionState.Open)
+                myConnection.Open();
 
-                tmpCommand.ExecuteNonQuery();
-                myConnection.Close();
-            }
+            tmpCommand.ExecuteNonQuery();
+            myConnection.Close();
         }
 
         public void ExecuteUpdate(string SQL)
         {
-            if (!this.ContainsForbiddenSql(SQL))
-            {
-                SqlCommand tmpCommand = new SqlCommand(SQL, myConnection);
+            SqlCommand tmpCommand = new SqlCommand(SQL, myConnection);
 
-                if (myConnection.State != ConnectionState.Open)
-                    myConnection.Open();
+            if (myConnection.State != ConnectionState.Open)
+                myConnection.Open();
 
-                tmpCommand.ExecuteNonQuery();
-                myConnection.Close();
-            }
+            tmpCommand.ExecuteNonQuery();
+            myConnection.Close();
         }
 
         public int ExecuteInsert(string SQL, List<SqlParameter> ListParms)
         {
             int RecordId = 0;
 
-            if (!this.ContainsForbiddenSql(SQL))
-            {
-                SqlParameter[] Parms = ListParms.ToArray();
-                SqlCommand tmpCommand = new SqlCommand(SQL, myConnection);
-                tmpCommand.Parameters.AddRange(Parms);
+            SqlParameter[] Parms = ListParms.ToArray();
+            SqlCommand tmpCommand = new SqlCommand(SQL, myConnection);
+            tmpCommand.Parameters.AddRange(Parms);
 
-                if (myConnection.State != ConnectionState.Open)
-                    myConnection.Open();
+            if (myConnection.State != ConnectionState.Open)
+                myConnection.Open();
 
-                tmpCommand.ExecuteNonQuery();
+            tmpCommand.ExecuteNonQuery();
 
-                tmpCommand = new SqlCommand("SELECT @@IDENTITY", myConnection);
-                RecordId = int.Parse(tmpCommand.ExecuteScalar().ToString());
+            tmpCommand = new SqlCommand("SELECT @@IDENTITY", myConnection);
+            RecordId = int.Parse(tmpCommand.ExecuteScalar().ToString());
 
-                myConnection.Close();
-
-            }
+            myConnection.Close();
 
             return RecordId;
         }
@@ -130,83 +120,73 @@ namespace Backend
         {
             int RecordId = 0;
 
-            if (!this.ContainsForbiddenSql(SQL))
-            {
-                SqlCommand tmpCommand = new SqlCommand(SQL, myConnection);
+            SqlCommand tmpCommand = new SqlCommand(SQL, myConnection);
 
-                if (myConnection.State != ConnectionState.Open)
-                    myConnection.Open();
+            if (myConnection.State != ConnectionState.Open)
+                myConnection.Open();
 
-                tmpCommand.ExecuteNonQuery();
+            tmpCommand.ExecuteNonQuery();
 
-                tmpCommand = new SqlCommand("SELECT @@IDENTITY", myConnection);
-                RecordId = int.Parse(tmpCommand.ExecuteScalar().ToString());
+            tmpCommand = new SqlCommand("SELECT @@IDENTITY", myConnection);
+            RecordId = int.Parse(tmpCommand.ExecuteScalar().ToString());
 
-                myConnection.Close();
-            }
+            myConnection.Close();
             return RecordId;
         }
 
         public void ExecuteDelete(string SQL, List<SqlParameter> ListParms)
         {
-            if (!this.ContainsForbiddenSql(SQL))
+            SqlParameter[] Parms = ListParms.ToArray();
+            SqlCommand tmpCommand = new SqlCommand(SQL, myConnection);
+            tmpCommand.Parameters.AddRange(Parms);
+            try
             {
-                SqlParameter[] Parms = ListParms.ToArray();
-                SqlCommand tmpCommand = new SqlCommand(SQL, myConnection);
-                tmpCommand.Parameters.AddRange(Parms);
-                try
-                {
-                    if (myConnection.State != ConnectionState.Open)
-                        myConnection.Open();
+                if (myConnection.State != ConnectionState.Open)
+                    myConnection.Open();
 
-                    tmpCommand.ExecuteNonQuery();
-                }
-                catch
+                tmpCommand.ExecuteNonQuery();
+            }
+            catch
+            {
+                if (myConnection.State == ConnectionState.Open)
                 {
-                    if (myConnection.State == ConnectionState.Open)
-                    {
-                        myConnection.Close();
-                    }
+                    myConnection.Close();
                 }
-                finally
+            }
+            finally
+            {
+                if (myConnection.State == ConnectionState.Open)
                 {
-                    if (myConnection.State == ConnectionState.Open)
-                    {
-                        myConnection.Close();
-                    }
+                    myConnection.Close();
                 }
             }
         }
 
         public void ExecuteDelete(string SQL)
         {
-            if (!this.ContainsForbiddenSql(SQL))
+            SqlCommand tmpCommand = new SqlCommand(SQL, myConnection);
+            try
             {
-                SqlCommand tmpCommand = new SqlCommand(SQL, myConnection);
-                try
-                {
-                    if (myConnection.State != ConnectionState.Open)
-                        myConnection.Open();
+                if (myConnection.State != ConnectionState.Open)
+                    myConnection.Open();
 
-                    tmpCommand.ExecuteNonQuery();
-                }
-                catch
+                tmpCommand.ExecuteNonQuery();
+            }
+            catch
+            {
+                if (myConnection.State == ConnectionState.Open)
                 {
-                    if (myConnection.State == ConnectionState.Open)
-                    {
-                        myConnection.Close();
-                    }
-                }
-                finally
-                {
-                    if (myConnection.State == ConnectionState.Open)
-                    {
-                        myConnection.Close();
-                    }
+                    myConnection.Close();
                 }
             }
+            finally
+            {
+                if (myConnection.State == ConnectionState.Open)
+                {
+                    myConnection.Close();
+                }
+            }
+
         }
-
-
     }
 }

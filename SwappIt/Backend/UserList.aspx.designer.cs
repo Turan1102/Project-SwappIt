@@ -22,6 +22,24 @@ namespace Backend {
         protected global::System.Web.UI.WebControls.Literal TestText;
         
         /// <summary>
+        /// searchTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal searchTotal;
+        
+        /// <summary>
+        /// searchText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText searchText;
+        
+        /// <summary>
         /// tableOut control.
         /// </summary>
         /// <remarks>

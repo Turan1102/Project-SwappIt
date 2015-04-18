@@ -17,8 +17,9 @@ namespace Backend
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (ui.haveRights("opret") && Request["id"] != null
-                || Request["NewDepartment"] != null && ui.haveRights("opret"))
+            Boolean haveRight = ui.haveRights("opret");
+            if (haveRight && Request["id"] != null
+                || Request["NewDepartment"] != null && haveRight)
             {
                 if (Request["NewDepartment"] != "true")
                 {
@@ -69,7 +70,7 @@ namespace Backend
 
         protected void CreateDepartmentButton_Click(object sender, EventArgs e)
         {
-            if (ui.haveRights("opret"))
+            if (ui.haveRights("opret") && ui.IsAdmin())
             {
                 List<SqlParameter> p = new List<SqlParameter>();
                 p.Add(new SqlParameter("SIID", ui.Siid));

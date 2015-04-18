@@ -18,10 +18,10 @@ namespace Backend
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (ui.haveRights("opret") && Request["id"] != null && Request["sid"] != null)
+            if (ui.haveRights("opret") && Request["id"] != null)
             {
                 currentId = int.Parse(Request["id"].ToString());
-                currentSId = int.Parse(Request["sid"].ToString());
+                currentSId = int.Parse(ui.Siid);
             }
 
             if (currentId == 0)
@@ -86,7 +86,6 @@ namespace Backend
 
             // Fill roles
             List<SqlParameter> p4 = new List<SqlParameter>();
-            p4.Add(new SqlParameter("SIID", currentSId));
             DataTable dt4 = db.GetDataSet("SELECT IID, Name FROM Role", p4).Table;
             foreach (DataRow r in dt4.Rows)
             {

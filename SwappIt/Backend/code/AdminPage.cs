@@ -49,5 +49,46 @@ namespace Backend.code
             script += "toastr['error']('" + text + "', '" + title + "');" + Environment.NewLine;
         }
 
+        public string[] SplitFullname(string fullname)
+        {
+            string[] fullnameArray = fullname.TrimEnd().Split(' ');
+            string Firstname = "";
+            string Middlename = "";
+            string Lastname = "";
+
+            if (fullnameArray.Length == 1)
+            {
+                Firstname = fullnameArray[0];
+            }
+            if (fullnameArray.Length == 2)
+            {
+                Firstname = fullnameArray[0];
+                Middlename = fullnameArray[1];
+            }
+            if (fullnameArray.Length == 3)
+            {
+                Firstname = fullnameArray[0];
+                Middlename = fullnameArray[1];
+                Lastname = fullnameArray[2];
+            }
+            if (fullnameArray.Length > 3)
+            {
+                Firstname = fullnameArray[0];
+
+                for (int i = 1; i < fullnameArray.Length; i++)
+                {
+                    if (i != fullnameArray.Length - 1)
+                    {
+                        Middlename += fullnameArray[i] + " ";
+                    }
+                }
+
+                Middlename = Middlename.TrimEnd();
+                Lastname = fullnameArray[fullnameArray.Length - 1];
+            }
+
+            return new string[] { Firstname, Lastname, Middlename };
+        }
+
     }
 }

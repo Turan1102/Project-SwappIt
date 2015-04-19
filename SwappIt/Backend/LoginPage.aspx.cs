@@ -20,11 +20,11 @@ namespace Backend
             {
                 if (Request["username"] != null && Request["password"] != null)
                 {
-                    string RecordId = Login(Request["username"].ToString(), Request["password"].ToString(), Request["shopId"].ToString());
+                    string IID = Login(Request["username"].ToString(), Request["password"].ToString(), Request["shopId"].ToString());
 
-                    if (RecordId != null)
+                    if (IID != null)
                     {
-                        Session["UserInfo"] = new UserInfo(RecordId, Request["shopId"].ToString());
+                        Session["UserInfo"] = new UserInfo(IID, Request["shopId"].ToString());
                         if (Session["StartPage"] != null)
                         {
                             Response.Redirect((string)Session["StartPage"]);

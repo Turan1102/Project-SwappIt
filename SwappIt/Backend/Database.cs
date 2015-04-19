@@ -97,7 +97,7 @@ namespace Backend
 
         public int ExecuteInsert(string SQL, List<SqlParameter> ListParms)
         {
-            int RecordId = 0;
+            int IID = 0;
 
             SqlParameter[] Parms = ListParms.ToArray();
             SqlCommand tmpCommand = new SqlCommand(SQL, myConnection);
@@ -109,16 +109,16 @@ namespace Backend
             tmpCommand.ExecuteNonQuery();
 
             tmpCommand = new SqlCommand("SELECT @@IDENTITY", myConnection);
-            RecordId = int.Parse(tmpCommand.ExecuteScalar().ToString());
+            IID = int.Parse(tmpCommand.ExecuteScalar().ToString());
 
             myConnection.Close();
 
-            return RecordId;
+            return IID;
         }
 
         public int ExecuteInsert(string SQL)
         {
-            int RecordId = 0;
+            int IID = 0;
 
             SqlCommand tmpCommand = new SqlCommand(SQL, myConnection);
 
@@ -128,10 +128,10 @@ namespace Backend
             tmpCommand.ExecuteNonQuery();
 
             tmpCommand = new SqlCommand("SELECT @@IDENTITY", myConnection);
-            RecordId = int.Parse(tmpCommand.ExecuteScalar().ToString());
+            IID = int.Parse(tmpCommand.ExecuteScalar().ToString());
 
             myConnection.Close();
-            return RecordId;
+            return IID;
         }
 
         public void ExecuteDelete(string SQL, List<SqlParameter> ListParms)

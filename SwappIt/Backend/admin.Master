@@ -530,39 +530,37 @@ License: You must have a valid license purchased only from themeforest(the above
 					</form> 
 					<!-- END RESPONSIVE QUICK SEARCH FORM 
 				</li> -->
-				<li class="start active open">
-					<a href="javascript:;">
+                <!-- START SIDEBAR MENU -->
+                <li>
+					<a href="TestMaster.aspx">
 					<i class="icon-home"></i>
-					<span class="title">Dashboard</span>
-					<span class="selected"></span>
-					<span class="arrow open"></span>
-					</a>
-					<ul class="sub-menu">
-						<li>
-							<a href="index.html">
-							<i class="icon-bar-chart"></i>
-							Default Dashboard</a>
-						</li>
-						<li>
-							<a href="index_2.html">
-							<i class="icon-bulb"></i>
-							New Dashboard #1</a>
-						</li>
-						<li class="active">
-							<a href="index_3.html">
-							<i class="icon-graph"></i>
-							New Dashboard #2</a>
-						</li>
-					</ul>
+					<span class="title">Startside</span>
+					<span class="arrow "></span>
+					</a>				
 				</li>
+                <li>
+					<a href="CreateNewsPage.aspx">
+					<i class="icon-info"></i>
+					<span class="title">Butiksnyheder</span>
+					<span class="arrow "></span>
+					</a>				
+				</li>
+                <li>
+					<a href="javascript:;">
+					<i class="icon-bubbles"></i>
+					<span class="title">Blog</span>
+					<span class="arrow "></span>
+					</a>				
+				</li>
+
                 <li class="heading">
 					<h3 class="uppercase">Vagter</h3>
 				</li>
-
                 <li>
 					<a href="javascript:;">
 					<i class="icon-basket"></i>
-					<span class="title">Nyheder</span>
+					<span class="title">Køb vagt</span>
+                        <span class="badge badge-info">14</span>
 					<span class="arrow "></span>
 					</a>				
 				</li>
@@ -570,65 +568,35 @@ License: You must have a valid license purchased only from themeforest(the above
 
 				<li>
 					<a href="javascript:;">
-					<i class="icon-basket"></i>
-					<span class="title">Byt Vagt</span>
-					<span class="arrow "></span>
-					</a>
-				</li>
-
-
-
-				<li>
-					<a href="javascript:;">
-					<i class="icon-rocket"></i>
+					<i class="icon-credit-card"></i>
 					<span class="title">Sælg Vagt</span>
 					<span class="arrow "></span>
 					</a>
 				</li>
 
-				<!-- BEGIN FRONTEND THEME LINKS -->
 				<li>
 					<a href="javascript:;">
-					<i class="icon-star"></i>
-					<span class="title">
-					Køb Vagt </span>
-					<span class="arrow">
-					</span>
+					<i class="icon-credit-card"></i>
+					<span class="title">Mine købte vagter</span>
+					<span class="arrow "></span>
 					</a>
 				</li>
-				<!-- END FRONTEND THEME LINKS -->
+
+				<li>
+					<a href="javascript:;">
+					<i class="icon-tag"></i>
+					<span class="title">Mine solgte vagter</span>
+					<span class="arrow"></span>
+					</a>
+				</li>				
 				
 				<li class="heading">
-					<h3 class="uppercase">Vagter</h3>
+					<h3 class="uppercase">Indstillinger</h3>
 				</li>
 				<li>
 					<a href="javascript:;">
 					<i class="icon-settings"></i>
-					<span class="title">Byttede vagter</span>
-					<span class="arrow "></span>
-					</a>
-				</li>
-
-				<li>
-					<a href="javascript:;">
-					<i class="icon-briefcase"></i>
-					<span class="title">Solgte vagter</span>
-					<span class="arrow "></span>
-					</a>
-				</li>
-
-				<li>
-					<a href="javascript:;">
-					<i class="icon-wallet"></i>
-					<span class="title">Købte Vagter</span>
-					<span class="arrow "></span>
-					</a>
-				</li>
-					
-				<li>
-					<a href="javascript:;">
-					<i class="icon-user"></i>
-					<span class="title">Login Indstillinger</span>
+					<span class="title">Login indstillinger</span>
 					<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
@@ -641,9 +609,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							Ændre adgangskode</a>
 						</li>
 					</ul>
-				</li>
-				
-				
+				</li>			
 			</ul>
 			<!-- END SIDEBAR MENU -->
 		</div>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin.Master" AutoEventWireup="true" CodeBehind="TestMaster.aspx.cs" Inherits="Backend.TestMaster" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin.Master"  AutoEventWireup="true" CodeBehind="CreateNewsPage.aspx.cs" Inherits="Backend.CreateNewsPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="pagetitle" runat="server">
     <h3 class="page-title">SwappIt <small>ændret fra testmasterpage!</small>
@@ -69,3 +69,4 @@
     </div>
     <!-- END PORTLET-->
 </asp:Content>
+

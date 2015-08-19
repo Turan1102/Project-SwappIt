@@ -10,7 +10,16 @@
 namespace Backend {
     
     
-    public partial class TestMaster {
+    public partial class BlogPage {
+        
+        /// <summary>
+        /// LinkBtnScrollDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkBtnScrollDown;
         
         /// <summary>
         /// tableOut control.
@@ -40,12 +49,12 @@ namespace Backend {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea Text;
         
         /// <summary>
-        /// LinkBtnSave control.
+        /// LinkButtonSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkBtnSave;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonSave;
     }
 }

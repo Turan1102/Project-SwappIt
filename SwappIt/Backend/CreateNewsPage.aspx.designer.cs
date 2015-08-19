@@ -10,7 +10,7 @@
 namespace Backend {
     
     
-    public partial class TestMaster {
+    public partial class CreateNewsPage {
         
         /// <summary>
         /// tableOut control.

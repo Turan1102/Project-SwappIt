@@ -8,12 +8,10 @@ using System.Data;
 using System.Data.SqlClient;
 using Backend.code;
 
-
 namespace Backend
 {
-    public partial class TestMaster : AdminPage
+    public partial class CreateNewsPage : AdminPage
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             this.FillNews();
@@ -51,7 +49,7 @@ namespace Backend
             }
         }
 
-        private void CreateNews() 
+        private void CreateNews()
         {
             List<SqlParameter> p = new List<SqlParameter>();
             p.Add(new SqlParameter("EIID", ui.Id));

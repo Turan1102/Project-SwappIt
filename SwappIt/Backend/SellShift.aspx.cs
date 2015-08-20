@@ -35,6 +35,7 @@ namespace Backend
 
             db.ExecuteInsert(SQL, p);
 
+
         }
 
         protected void SellShiftToIndividualButton_Click(object sender, EventArgs e)
@@ -49,7 +50,7 @@ namespace Backend
             p.Add(new SqlParameter("EndTime", timeEnd));
             p.Add(new SqlParameter("SIID", ui.Siid));
             p.Add(new SqlParameter("EIID", ui.Id));
-            p.Add(new SqlParameter("Type", "0"));
+            p.Add(new SqlParameter("Type", "1"));
 
             string SQL = "INSERT INTO Shift (SIID, EIID, Date, StartTime, EndTime, Type) VALUES (@SIID, @EIID, @Date, @StartTime, @EndTime, @Type)";
             int primaryKey = db.ExecuteInsert(SQL, p);
@@ -97,7 +98,7 @@ namespace Backend
             p.Add(new SqlParameter("EndTime", timeEnd));
             p.Add(new SqlParameter("SIID", ui.Siid));
             p.Add(new SqlParameter("EIID", ui.Id));
-            p.Add(new SqlParameter("Type", "0"));
+            p.Add(new SqlParameter("Type", "2"));
 
             string SQL = "INSERT INTO Shift (SIID, EIID, Date, StartTime, EndTime, Type) VALUES (@SIID, @EIID, @Date, @StartTime, @EndTime, @Type)";
 

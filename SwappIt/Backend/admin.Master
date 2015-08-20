@@ -65,6 +65,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
 <body class="page-header-fixed page-quick-sidebar-over-content page-sidebar-closed-hide-logo page-container-bg-solid">
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="scriptManager" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
         <!-- BEGIN HEADER -->
         <div class="page-header navbar navbar-fixed-top">
             <!-- BEGIN HEADER INNER -->
@@ -484,88 +485,86 @@ License: You must have a valid license purchased only from themeforest(the above
 					</form> 
 					<!-- END RESPONSIVE QUICK SEARCH FORM 
 				</li> -->
-<!-- START SIDEBAR MENU -->
-                <li>
-					<a href="TestMaster.aspx">
-					<i class="icon-home"></i>
-					<span class="title">Startside</span>
-					<span class="arrow "></span>
-					</a>				
-				</li>
-                <li>
-					<a href="CreateNewsPage.aspx">
-					<i class="icon-info"></i>
-					<span class="title">Butiksnyheder</span>
-					<span class="arrow "></span>
-					</a>				
-				</li>
-                <li>
-					<a href="BlogPage.aspx">
-					<i class="icon-bubbles"></i>
-					<span class="title">Blog</span>
-					<span class="arrow "></span>
-					</a>				
-				</li>
+                        <!-- START SIDEBAR MENU -->
+                        <li>
+                            <a href="TestMaster.aspx">
+                                <i class="icon-home"></i>
+                                <span class="title">Startside</span>
+                                <span class="arrow "></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="CreateNewsPage.aspx">
+                                <i class="icon-info"></i>
+                                <span class="title">Butiksnyheder</span>
+                                <span class="arrow "></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="BlogPage.aspx">
+                                <i class="icon-bubbles"></i>
+                                <span class="title">Blog</span>
+                                <span class="arrow "></span>
+                            </a>
+                        </li>
 
-                <li class="heading">
-					<h3 class="uppercase">Vagter</h3>
-				</li>
-                <li>
-					<a href="javascript:;">
-					<i class="icon-basket"></i>
-					<span class="title">Køb vagt</span>
-                        <span class="badge badge-info">14</span>
-					<span class="arrow "></span>
-					</a>				
-				</li>
+                        <li class="heading">
+                            <h3 class="uppercase">Vagter</h3>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="icon-basket"></i>
+                                <span class="title">Køb vagt</span>
+                                <span class="badge badge-info">14</span>
+                                <span class="arrow "></span>
+                            </a>
+                        </li>
 
 
-				<li>
-					<a href="SellShift.aspx">
-					<i class="icon-credit-card"></i>
-					<span class="title">Sælg Vagt</span>
-					<span class="arrow "></span>
-					</a>
-				</li>
+                        <li>
+                            <a href="SellShift.aspx">
+                                <i class="icon-credit-card"></i>
+                                <span class="title">Sælg Vagt</span>
+                                <span class="arrow "></span>
+                            </a>
+                        </li>
 
-				<li>
-					<a href="javascript:;">
-					<i class="icon-credit-card"></i>
-					<span class="title">Mine købte vagter</span>
-					<span class="arrow "></span>
-					</a>
-				</li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="icon-credit-card"></i>
+                                <span class="title">Mine købte vagter</span>
+                                <span class="arrow "></span>
+                            </a>
+                        </li>
 
-				<li>
-					<a href="javascript:;">
-					<i class="icon-tag"></i>
-					<span class="title">Mine solgte vagter</span>
-					<span class="arrow"></span>
-					</a>
-				</li>				
-				
-				<li class="heading">
-					<h3 class="uppercase">Indstillinger</h3>
-				</li>
-				<li>
-					<a href="javascript:;">
-					<i class="icon-settings"></i>
-					<span class="title">Login indstillinger</span>
-					<span class="arrow "></span>
-					</a>
-					<ul class="sub-menu">
-						<li>
-							<a href="login.html">
-							Min Profil</a>
-						</li>
-						<li>
-							<a href="login_soft.html">
-							Ændre adgangskode</a>
-						</li>
-					</ul>
-				</li>			
-			</ul>
-			<!-- END SIDEBAR MENU -->
+                        <li>
+                            <a href="javascript:;">
+                                <i class="icon-tag"></i>
+                                <span class="title">Mine solgte vagter</span>
+                                <span class="arrow"></span>
+                            </a>
+                        </li>
+
+                        <li class="heading">
+                            <h3 class="uppercase">Indstillinger</h3>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="icon-settings"></i>
+                                <span class="title">Login indstillinger</span>
+                                <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="login.html">Min Profil</a>
+                                </li>
+                                <li>
+                                    <a href="login_soft.html">Ændre adgangskode</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- END SIDEBAR MENU -->
                 </div>
             </div>
             <!-- END SIDEBAR -->
@@ -697,26 +696,26 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div> -->
                     </div>
 
-                            <!-- BEGIN PAGE HEADER-->
+                    <!-- BEGIN PAGE HEADER-->
 
-                            <asp:ContentPlaceHolder ID="pagetitle" runat="server">
-                            </asp:ContentPlaceHolder>
+                    <asp:ContentPlaceHolder ID="pagetitle" runat="server">
+                    </asp:ContentPlaceHolder>
 
-                            <!-- END PAGE HEADER-->
-                            <!-- BEGIN PAGE CONTENT-->
+                    <!-- END PAGE HEADER-->
+                    <!-- BEGIN PAGE CONTENT-->
 
-                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                            </asp:ContentPlaceHolder>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
 
-                            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-                            </asp:ContentPlaceHolder>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
 
-                            <asp:ContentPlaceHolder ID="ContentPlaceHolderWithLinkButton" runat="server">
-                            </asp:ContentPlaceHolder>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolderWithLinkButton" runat="server">
+                    </asp:ContentPlaceHolder>
 
-                            <asp:ContentPlaceHolder ID="test" runat="server">
-                            </asp:ContentPlaceHolder>
-                            <!-- END PAGE CONTENT-->
+                    <asp:ContentPlaceHolder ID="test" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <!-- END PAGE CONTENT-->
 
                 </div>
             </div>

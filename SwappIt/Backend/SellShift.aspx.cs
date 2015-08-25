@@ -14,7 +14,10 @@ namespace Backend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.fillIndividualDD();
+            if (!Page.IsPostBack)
+            {
+                this.fillIndividualDD();
+            }
         }
 
         protected void SellShiftToAllButton_Click(object sender, EventArgs e)
@@ -33,7 +36,7 @@ namespace Backend
 
             string SQL = "INSERT INTO Shift (SIID, EIID, Date, StartTime, EndTime, Type) VALUES (@SIID, @EIID, @Date, @StartTime, @EndTime, @Type)";
 
-            db.ExecuteInsert(SQL, p);
+            db.ExecuteInsert(SQL, p);         
 
         }
 

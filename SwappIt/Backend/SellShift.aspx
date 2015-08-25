@@ -44,6 +44,27 @@
         </div>
         <div class="portlet-body form">
             <div class="tab-content">
+
+                <!-- Popup kvittering start -->
+                <div class="modal fade" id="receipt" tabindex="-1" role="receipt" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                <h2 class="modal-title">Kvittering for salg</h2>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Popup besked start -->
+                                <h4>Dit salg af vagt er nu gennemført!</h4>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn red" data-dismiss="modal"><i class=""></i>Afslut</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Popup kvittering slut -->
+
                 <div class="tab-pane active" id="portlet_tab2_1">
                     <div class="form-horizontal form-bordered form-row-stripped">
                         <div class="form-body">
@@ -88,20 +109,64 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="form-actions fluid">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="col-md-offset-3 col-md-9">
-                                            <asp:LinkButton ID="LinkBtnSaveToAll" CssClass="btn green" runat="server" OnClick="SellShiftToAllButton_Click"><i class="fa fa-check"></i> Sælg til alle</asp:LinkButton>
+                                            <a class="btn green" id="btnSellToAll" name="btnSellToAll" data-toggle="modal" href="#sellToAll">Sælg til alle </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
+                            <!-- Popup bekræftelse start -->
+                            <div class="modal fade" id="sellToAll" tabindex="-1" role="sellToAll" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                            <h2 class="modal-title">Sælg vagt til alle</h2>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- Popup besked start -->
+                                            <h4>Du vil sælge denne vagt til alle</h4>
+                                            <br />
+                                            <table class="table table-striped table-bordered table-hover dataTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th><i class="fa fa-calendar-o"></i> Dato</th>
+                                                        <th><i class="fa fa-clock-o"></i> Starttid</th>
+                                                        <th><i class="fa fa-clock-o"></i> Sluttid</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td id="msgDate0"></td>
+                                                        <td id="msgStartTime0"></td>
+                                                        <td id="msgEndTime0"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!-- Popup besked slut -->
+                                        </div>
+                                        <div class="modal-footer">
+                                            <!-- UpdatePanel, fordi vi ikke må miste data -->
+                                            <asp:Panel ID="Panel" runat="server">
+                                                <asp:UpdatePanel ID="UpdatePanel" UpdateMode="Conditional" runat="server">
+                                                    <ContentTemplate>
+                                                        <button type="button" class="btn red" data-dismiss="modal"><i class="fa fa-times"></i>Fortryd</button>
+                                                        <asp:LinkButton ID="LinkBtnSaveToAll" CssClass="btn green" runat="server" OnClick="SellShiftToAllButton_Click" OnClientClick="javascript:return SwitchToReceipt();"><i class="fa fa-check"></i> Bekræft</asp:LinkButton>
+                                                    </ContentTemplate>
+                                                </asp:UpdatePanel>
+                                            </asp:Panel>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Popup bekræftelse slut -->
+
                         </div>
                     </div>
-
                 </div>
                 <div class="tab-pane" id="portlet_tab2_2">
 
@@ -154,23 +219,67 @@
                                     <select data-container="body" class="bs-select form-control" name="individualDD" id="individualDD" runat="server" multiple="true"></select>
                                 </div>
                             </div>
-
                             <div class="form-actions fluid">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="col-md-offset-3 col-md-9">
-                                            <asp:LinkButton ID="LinkBtnSaveToIndividual" CssClass="btn green" runat="server" OnClick="SellShiftToIndividualButton_Click"><i class="fa fa-check"></i> Sælg til valgte</asp:LinkButton>
+                                            <a class="btn green" id="btnSellToIndividual" name="btnSellToIndividual" data-toggle="modal" href="#sellToIndividual">Sælg til valgte </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
+                            <!-- Popup bekræftelse start -->
+                            <div class="modal fade" id="sellToIndividual" tabindex="-1" role="sellToIndividual" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                            <h2 class="modal-title">Sælg vagt til valgte</h2>
+                                        </div>
+                                        <div class="modal-body">
+                                           <!-- Popup besked start -->
+                                            <h4>Du vil sælge denne vagt til valgte</h4>
+                                            <br />
+                                            <table class="table table-striped table-bordered table-hover dataTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th><i class="fa fa-calendar-o"></i> Dato</th>
+                                                        <th><i class="fa fa-clock-o"></i> Starttid</th>
+                                                        <th><i class="fa fa-clock-o"></i> Sluttid</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td id="msgDate1"></td>
+                                                        <td id="msgStartTime1"></td>
+                                                        <td id="msgEndTime1"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!-- Popup besked slut -->
+                                        </div>
+                                        <div class="modal-footer">
+                                            <!-- UpdatePanel, fordi vi ikke må miste data -->
+                                            <asp:Panel ID="Panel1" runat="server">
+                                                <asp:UpdatePanel ID="UpdatePanel1" UpdateMode="Conditional" runat="server">
+                                                    <ContentTemplate>
+                                                        <button type="button" class="btn red" data-dismiss="modal"><i class="fa fa-times"></i>Fortryd</button>
+                                                        <asp:LinkButton ID="LinkBtnSaveToIndividual" CssClass="btn green" runat="server" OnClick="SellShiftToIndividualButton_Click" OnClientClick="javascript:return SwitchToReceipt();"><i class="fa fa-check"></i> Sælg til valgte</asp:LinkButton>
+                                                    </ContentTemplate>
+                                                </asp:UpdatePanel>
+                                            </asp:Panel>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Popup bekræftelse slut -->
+
                         </div>
                     </div>
-
                 </div>
                 <div class="tab-pane" id="portlet_tab2_3">
-        <div class="form-horizontal form-bordered form-row-stripped">
+                    <div class="form-horizontal form-bordered form-row-stripped">
                         <div class="form-body">
                             <div class="form-group">
                                 <div class="alert alert-success">
@@ -213,16 +322,61 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="form-actions fluid">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="col-md-offset-3 col-md-9">
-                                            <asp:LinkButton ID="LinkBtnSaveToCloseResponsible" CssClass="btn green" runat="server" OnClick="SellShiftToCloseResponsibleButton_Click"><i class="fa fa-check"></i> Sælg til alle lukkeansvarlige</asp:LinkButton>
+                                            <a class="btn green" id="btnSellToCloseResponsible" name="btnSellToCloseResponsible" data-toggle="modal" href="#sellToCloseResponsible">Sælg til alle lukkeansvarlige </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- Popup bekræftelse start -->
+                            <div class="modal fade" id="sellToCloseResponsible" tabindex="-1" role="sellToCloseResponsible" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                            <h2 class="modal-title">Sælg vagt til alle lukkeansvarlige</h2>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- Popup besked start -->
+                                            <h4>Du vil sælge denne vagt til alle lukkeansvarlige</h4>
+                                            <br />
+                                            <table class="table table-striped table-bordered table-hover dataTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th><i class="fa fa-calendar-o"></i> Dato</th>
+                                                        <th><i class="fa fa-clock-o"></i> Starttid</th>
+                                                        <th><i class="fa fa-clock-o"></i> Sluttid</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td id="msgDate2"></td>
+                                                        <td id="msgStartTime2"></td>
+                                                        <td id="msgEndTime2"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!-- Popup besked slut -->
+                                        </div>
+                                        <div class="modal-footer">
+                                            <!-- UpdatePanel, fordi vi ikke må miste data -->
+                                            <asp:Panel ID="Panel2" runat="server">
+                                                <asp:UpdatePanel ID="UpdatePanel2" UpdateMode="Conditional" runat="server">
+                                                    <ContentTemplate>
+                                                        <button type="button" class="btn red" data-dismiss="modal"><i class="fa fa-times"></i>Fortryd</button>
+                                                        <asp:LinkButton ID="LinkBtnSaveToCloseResponsible" CssClass="btn green" runat="server" OnClick="SellShiftToCloseResponsibleButton_Click" OnClientClick="javascript:return SwitchToReceipt();"><i class="fa fa-check"></i> Bekræft</asp:LinkButton>
+                                                    </ContentTemplate>
+                                                </asp:UpdatePanel>
+                                            </asp:Panel>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Popup bekræftelse slut -->
 
                         </div>
                     </div>
@@ -287,5 +441,44 @@
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA-37564768-1', 'keenthemes.com');
         ga('send', 'pageview');
+    </script>
+    <script>
+
+        $('#btnSellToAll').click(function () {
+
+            document.getElementById('msgDate0').innerHTML = document.getElementById('<%= shiftDate0.ClientID %>').value;
+            document.getElementById('msgStartTime0').innerHTML = document.getElementById('<%= startTime0.ClientID %>').value;
+            document.getElementById('msgEndTime0').innerHTML = document.getElementById('<%= endTime0.ClientID %>').value;
+
+        });
+
+        $('#btnSellToIndividual').click(function () {
+
+            document.getElementById('msgDate1').innerHTML = document.getElementById('<%= shiftDate1.ClientID %>').value;
+            document.getElementById('msgStartTime1').innerHTML = document.getElementById('<%= startTime1.ClientID %>').value;
+            document.getElementById('msgEndTime1').innerHTML = document.getElementById('<%= endTime1.ClientID %>').value;
+
+        });
+
+        $('#btnSellToCloseResponsible').click(function () {
+
+            document.getElementById('msgDate2').innerHTML = document.getElementById('<%= shiftDate2.ClientID %>').value;
+            document.getElementById('msgStartTime2').innerHTML = document.getElementById('<%= startTime2.ClientID %>').value;
+            document.getElementById('msgEndTime2').innerHTML = document.getElementById('<%= endTime2.ClientID %>').value;
+
+        });
+
+        function SwitchToReceipt() {
+
+            $("#sellToAll").hide();
+            $("#sellToCloseResponsible").hide();
+            $("#sellToIndividual").hide();
+
+            $(".modal-backdrop").hide();
+            $("#receipt").modal('show');
+
+        }
+
+
     </script>
 </asp:Content>

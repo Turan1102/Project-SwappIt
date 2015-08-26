@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BlogPage.aspx" />
+    <Content Include="BuyShift.aspx" />
     <Content Include="CreateNewsPage.aspx" />
     <Content Include="css\about-us.css" />
     <Content Include="css\blog.css" />
@@ -3571,6 +3572,13 @@
     </Compile>
     <Compile Include="BlogPage.aspx.designer.cs">
       <DependentUpon>BlogPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BuyShift.aspx.cs">
+      <DependentUpon>BuyShift.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuyShift.aspx.designer.cs">
+      <DependentUpon>BuyShift.aspx</DependentUpon>
     </Compile>
     <Compile Include="code\AdminPage.cs">
       <SubType>ASPXCodeBehind</SubType>

@@ -199,6 +199,7 @@
     <Content Include="img\syncfusion-icons-white.png" />
     <Content Include="img\syncfusion-icons.png" />
     <Content Include="LoginPage.aspx" />
+    <Content Include="MyShifts.aspx" />
     <Content Include="pages\about-us-rtl.css" />
     <Content Include="pages\about-us.css" />
     <Content Include="pages\blog-rtl.css" />
@@ -3605,6 +3606,13 @@
     </Compile>
     <Compile Include="LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyShifts.aspx.cs">
+      <DependentUpon>MyShifts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyShifts.aspx.designer.cs">
+      <DependentUpon>MyShifts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SellShift.aspx.cs">

@@ -37,6 +37,9 @@
                 <li class="">
                     <a href="#portlet_tab2" data-toggle="tab"><i class="fa fa-user"></i>Mine solgte vagter</a>
                 </li>
+                <li class="">
+                    <a href="#portlet_tab3" data-toggle="tab"><i class="fa fa-user"></i>Mine vagter til salg</a>
+                </li>
             </ul>
         </div>
 
@@ -93,6 +96,37 @@
                                         </thead>
                                         <tbody>
                                             <asp:Literal ID="tableOut2" runat="server"></asp:Literal>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="tab-pane" id="portlet_tab3">
+                    <div class="form-horizontal form-bordered form-row-stripped">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <div class="alert alert-success">
+                                    Alle the below dropdown menu. It will be opened as usual since there is enough space at the bottom. 1
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="table-responsive">
+                                    <table id="dataTable3" class="table table-striped table-bordered table-hover dataTable">
+                                        <thead>
+                                            <tr>
+                                                <th><i class="fa fa-user"></i>Vagtens type</th>
+                                                <th><i class="fa fa-calendar"></i>Dato for oprettelse</th>
+                                                <th><i class="fa fa-calendar"></i>Vagtdato</th>
+                                                <th><i class="fa fa-clock-o"></i>Tid</th>
+                                                <th><i class="fa fa-check"></i>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <asp:Literal ID="tableOut3" runat="server"></asp:Literal>
                                         </tbody>
                                     </table>
                                 </div>

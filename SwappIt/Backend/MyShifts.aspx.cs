@@ -17,7 +17,49 @@ namespace Backend
 
             FillBoughtShiftsTable();
             FillSoldShiftsTable();
+            FillCurrentSellingShifts();
 
+        }
+
+        private void FillCurrentSellingShifts()
+        {
+            tableOut3.Text = "";
+
+            List<SqlParameter> p = new List<SqlParameter>();
+            p.Add(new SqlParameter("EIID", ui.Id));
+            DataTable dt = db.GetDataSet("SELECT CreateTime, Date, StartTime, EndTime, Type, Inactive FROM Shift WHERE EIID = @EIID ORDER BY Date", p).Table;
+
+            foreach (DataRow r in dt.Rows)
+            {
+                // kode til at fjerne den ekstra string: 00:00:0000 der medfølger date fra database
+                string shiftType = this.convertShiftTypeToString(r["Type"].ToString());
+                string shiftDate = this.dateFormater(r["Date"].ToString());
+                string saleDate = this.dateFormater(r["CreateTime"].ToString());
+
+
+                tableOut3.Text += "<tr>" +
+                            "   <td>" + shiftType + "</td>" +
+                            "   <td>" + saleDate + "</td>" +
+                            "   <td>" + shiftDate + "</td>" +
+                            "   <td>" + r["StartTime"].ToString() + " - " + r["EndTime"].ToString() + "</td>" +
+                            "   <td>" + (r["Inactive"].ToString() == "0" ? "Til salg" : "Solgt") + "</td>" +
+                                "</tr>";
+            }
+        }
+
+        private string convertShiftTypeToString(string type)
+        {
+            switch (type)
+            {
+                case "0":
+                    return "Alle";
+                case "1":
+                    return "Enkelte";
+                case "2":
+                    return "Lukkevagter";
+            }
+
+            return "Ikke Defineret";
         }
 
         private void FillBoughtShiftsTable()
@@ -43,7 +85,6 @@ namespace Backend
                             "   <td>" + bougthDate + "</td>" +
                                 "</tr>";
             }
-
         }
 
         private void FillSoldShiftsTable()

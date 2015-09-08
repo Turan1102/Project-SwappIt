@@ -90,6 +90,7 @@
     <Content Include="css\themes\light2.css" />
     <Content Include="css\timeline.css" />
     <Content Include="css\todo.css" />
+    <Content Include="Global.asax" />
     <Content Include="img\accordion-plusminus.png" />
     <Content Include="img\ajax-loading.gif" />
     <Content Include="img\ajax-modal-loading.gif" />
@@ -3524,6 +3525,7 @@
     <Content Include="scripts\inbox.js" />
     <Content Include="scripts\index.js" />
     <Content Include="scripts\index3.js" />
+    <Content Include="scripts\jquery-1.7.1.js" />
     <Content Include="scripts\layout.js" />
     <Content Include="scripts\lock.js" />
     <Content Include="scripts\login-soft.js" />
@@ -3553,6 +3555,7 @@
     <Content Include="scripts\ui-toastr.js" />
     <Content Include="scripts\ui-tree.js" />
     <Content Include="SellShift.aspx" />
+    <Content Include="Test.aspx" />
     <Content Include="TestMaster.aspx" />
     <Content Include="UserEdit.aspx" />
     <Content Include="UserList.aspx" />
@@ -3593,6 +3596,9 @@
       <DependentUpon>CreateNewsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3621,6 +3627,13 @@
     </Compile>
     <Compile Include="SellShift.aspx.designer.cs">
       <DependentUpon>SellShift.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestMaster.aspx.cs">
       <DependentUpon>TestMaster.aspx</DependentUpon>

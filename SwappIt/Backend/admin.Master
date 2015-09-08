@@ -65,6 +65,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
 <body class="page-header-fixed page-quick-sidebar-over-content page-sidebar-closed-hide-logo page-container-bg-solid">
     <form id="form1" runat="server">
+
         <asp:ScriptManager ID="scriptManager" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
         <!-- BEGIN HEADER -->
         <div class="page-header navbar navbar-fixed-top">

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Backend.code
 {
@@ -49,6 +51,28 @@ namespace Backend.code
             script += "toastr['error']('" + text + "', '" + title + "');" + Environment.NewLine;
         }
 
+        public void ToggleEmployeeInactive(string EmployeeId)
+        {
+            if (ui.haveRights("slet"))
+            {
+                List<SqlParameter> p1 = new List<SqlParameter>();
+                p1.Add(new SqlParameter("IID", EmployeeId));
+                DataTable dt1 = db.GetDataSet("SELECT * FROM Employee WHERE IID=@IID", p1).Table;
+                if (dt1.Rows.Count > 0)
+                {
+                    DataRow r = dt1.Rows[0];
+
+                    List<SqlParameter> p2 = new List<SqlParameter>();
+                    p2.Add(new SqlParameter("IID", EmployeeId));
+                    p2.Add(new SqlParameter("Inactive", (r["Inactive"].ToString() == "1" ? "0" : "1")));
+                    db.ExecuteUpdate("UPDATE Employee SET Inactive=@Inactive WHERE IID=@IID", p2);
+                    // AddToastrSucces("Status", "Bruger " + r["Name"] + " er blevet " + (r["Inactive"].ToString() == "1" ? "aktiverede" : "deaktiverede"));
+
+                }
+
+            }
+        }
+
         public string[] SplitFullname(string fullname)
         {
             string[] fullnameArray = fullname.TrimEnd().Split(' ');
@@ -89,6 +113,51 @@ namespace Backend.code
 
             return new string[] { Firstname, Lastname, Middlename };
         }
+
+        public string convertShiftTypeToString(string typeCode)
+        {
+            switch (typeCode)
+            {
+                case "0":
+                    return "Alle";
+                case "1":
+                    return "Enkelte";
+                case "2":
+                    return "Lukkevagter";
+                case "4":
+                    return "Byttevagt retur";
+            }
+
+            return "Ikke Defineret";
+        }
+
+        public string convertResponseTradeStatusToString(string statusCode)
+        {
+            switch (statusCode)
+            {
+                case "0":
+                    return "Byttevagt modtaget (køber)";
+                case "1":
+                    return "Afvist (sælger)";
+                case "2":
+                    return "Godkendt (sælger)";
+
+            }
+
+            return "Ikke Defineret";
+        }
+
+        public String dateFormater(String date)
+        {
+            int dateindex = date.IndexOf(' ');
+            if (dateindex > 0)
+            {
+                date = date.Substring(0, dateindex);
+            }
+
+            return date;
+
+        } 
 
     }
 }

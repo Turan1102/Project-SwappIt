@@ -33,8 +33,9 @@ namespace Backend
             p.Add(new SqlParameter("SIID", ui.Siid));
             p.Add(new SqlParameter("EIID", ui.Id));
             p.Add(new SqlParameter("Type", "0"));
+            p.Add(new SqlParameter("IsTrade", (radio1yes.Checked ? "1" : "0")));
 
-            string SQL = "INSERT INTO Shift (SIID, EIID, Date, StartTime, EndTime, Type) VALUES (@SIID, @EIID, @Date, @StartTime, @EndTime, @Type)";
+            string SQL = "INSERT INTO Shift (SIID, EIID, Date, StartTime, EndTime, Type, IsTrade) VALUES (@SIID, @EIID, @Date, @StartTime, @EndTime, @Type, @IsTrade)";
 
             db.ExecuteInsert(SQL, p);         
 
@@ -54,8 +55,9 @@ namespace Backend
             p.Add(new SqlParameter("SIID", ui.Siid));
             p.Add(new SqlParameter("EIID", ui.Id));
             p.Add(new SqlParameter("Type", "1"));
+            p.Add(new SqlParameter("IsTrade", (radio2yes.Checked ? "1" : "0")));
 
-            string SQL = "INSERT INTO Shift (SIID, EIID, Date, StartTime, EndTime, Type) VALUES (@SIID, @EIID, @Date, @StartTime, @EndTime, @Type)";
+            string SQL = "INSERT INTO Shift (SIID, EIID, Date, StartTime, EndTime, Type, IsTrade) VALUES (@SIID, @EIID, @Date, @StartTime, @EndTime, @Type, @IsTrade)";
             int primaryKey = db.ExecuteInsert(SQL, p);
 
             p.Clear();
@@ -102,12 +104,13 @@ namespace Backend
             p.Add(new SqlParameter("SIID", ui.Siid));
             p.Add(new SqlParameter("EIID", ui.Id));
             p.Add(new SqlParameter("Type", "2"));
+            p.Add(new SqlParameter("IsTrade", (radio3yes.Checked ? "1" : "0")));
 
-            string SQL = "INSERT INTO Shift (SIID, EIID, Date, StartTime, EndTime, Type) VALUES (@SIID, @EIID, @Date, @StartTime, @EndTime, @Type)";
+            string SQL = "INSERT INTO Shift (SIID, EIID, Date, StartTime, EndTime, Type, IsTrade) VALUES (@SIID, @EIID, @Date, @StartTime, @EndTime, @Type, @IsTrade)";
 
             int primaryKey = db.ExecuteInsert(SQL, p);
             p.Clear();
-
+            
             string SQL1 = "SELECT IID FROM Employee WHERE CloseResponsible= 1 AND SIID=" + ui.Siid + " AND IID !=" + ui.Id;
             DataTable dt = db.GetDataSet(SQL1).Table;
             foreach (DataRow r in dt.Rows)
@@ -121,7 +124,7 @@ namespace Backend
                 db.ExecuteInsert(SQL2, p);
                 p.Clear();
             }
-
+            
              
 
         }

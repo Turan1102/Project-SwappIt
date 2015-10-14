@@ -10,3 +10,9 @@ C:\Users\Mykremin\Desktop\Mykremin\SwappIt\SwappIt\Backend\bin\Backend.dll
 C:\Users\Mykremin\Desktop\Mykremin\SwappIt\SwappIt\Backend\bin\Backend.pdb
 C:\Users\Mykremin\Desktop\Mykremin\SwappIt\SwappIt\Backend\obj\Debug\Backend.dll
 C:\Users\Mykremin\Desktop\Mykremin\SwappIt\SwappIt\Backend\obj\Debug\Backend.pdb
+C:\Users\Mikail Tolga Turan\Desktop\GitHub\Project-SwappIt\SwappIt\Backend\bin\Backend.dll.config
+C:\Users\Mikail Tolga Turan\Desktop\GitHub\Project-SwappIt\SwappIt\Backend\bin\Backend.dll
+C:\Users\Mikail Tolga Turan\Desktop\GitHub\Project-SwappIt\SwappIt\Backend\bin\Backend.pdb
+C:\Users\Mikail Tolga Turan\Desktop\GitHub\Project-SwappIt\SwappIt\Backend\obj\Debug\Backend.dll
+C:\Users\Mikail Tolga Turan\Desktop\GitHub\Project-SwappIt\SwappIt\Backend\obj\Debug\Backend.pdb
+C:\Users\Mikail Tolga Turan\Desktop\GitHub\Project-SwappIt\SwappIt\Backend\obj\Debug\Backend.csprojResolveAssemblyReference.cache

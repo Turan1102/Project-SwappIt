@@ -27,39 +27,25 @@ namespace Backend
 
             List<SqlParameter> p = new List<SqlParameter>();
             p.Add(new SqlParameter("EIID", ui.Id));
-            DataTable dt = db.GetDataSet("SELECT CreateTime, Date, StartTime, EndTime, Type, Inactive FROM Shift WHERE EIID = @EIID ORDER BY Date", p).Table;
+            DataTable dt = db.GetDataSet("SELECT CreateTime, Date, StartTime, EndTime, Type, IsTrade, Inactive FROM Shift WHERE EIID = @EIID AND (Type = 0 OR Type = 1 OR Type = 2) ORDER BY Date", p).Table;
 
             foreach (DataRow r in dt.Rows)
             {
                 // kode til at fjerne den ekstra string: 00:00:0000 der medfølger date fra database
-                string shiftType = this.convertShiftTypeToString(r["Type"].ToString());
-                string shiftDate = this.dateFormater(r["Date"].ToString());
-                string saleDate = this.dateFormater(r["CreateTime"].ToString());
+                string shiftType = convertShiftTypeToString(r["Type"].ToString());
+                string shiftDate = dateFormater(r["Date"].ToString());
+                string saleDate = dateFormater(r["CreateTime"].ToString());
 
 
                 tableOut3.Text += "<tr>" +
                             "   <td>" + shiftType + "</td>" +
+                            "   <td>" + (r["IsTrade"].ToString() == "0" ? "Nej" : "Ja") + "</td>" +
                             "   <td>" + saleDate + "</td>" +
                             "   <td>" + shiftDate + "</td>" +
                             "   <td>" + r["StartTime"].ToString() + " - " + r["EndTime"].ToString() + "</td>" +
                             "   <td>" + (r["Inactive"].ToString() == "0" ? "Til salg" : "Solgt") + "</td>" +
                                 "</tr>";
             }
-        }
-
-        private string convertShiftTypeToString(string type)
-        {
-            switch (type)
-            {
-                case "0":
-                    return "Alle";
-                case "1":
-                    return "Enkelte";
-                case "2":
-                    return "Lukkevagter";
-            }
-
-            return "Ikke Defineret";
         }
 
         private void FillBoughtShiftsTable()
@@ -74,8 +60,8 @@ namespace Backend
             foreach (DataRow r in dt.Rows)
             {
                  // kode til at fjerne den ekstra string: 00:00:0000 der medfølger date fra database
-                string shiftDate = this.dateFormater(r["Date"].ToString());
-                string bougthDate = this.dateFormater(r["CreateTime"].ToString());
+                string shiftDate = dateFormater(r["Date"].ToString());
+                string bougthDate = dateFormater(r["CreateTime"].ToString());
 
 
                 tableOut1.Text += "<tr>" +
@@ -98,8 +84,8 @@ namespace Backend
             foreach (DataRow r in dt.Rows)
             {
                 // kode til at fjerne den ekstra string: 00:00:0000 der medfølger date fra database
-                string shiftDate = this.dateFormater(r["Date"].ToString());
-                string soldDate = this.dateFormater(r["CreateTime"].ToString());
+                string shiftDate = dateFormater(r["Date"].ToString());
+                string soldDate = dateFormater(r["CreateTime"].ToString());
 
 
                 tableOut2.Text += "<tr>" +
@@ -110,18 +96,6 @@ namespace Backend
                                 "</tr>";
             }
         }
-
-        private String dateFormater(String date)
-        {
-            int dateindex = date.IndexOf(' ');
-            if (dateindex > 0)
-            {
-                date = date.Substring(0, dateindex);
-            }
-
-            return date;
-
-        } 
 
     }
 }

@@ -119,6 +119,7 @@
                                         <thead>
                                             <tr>
                                                 <th><i class="fa fa-user"></i>Vagtens type</th>
+                                                <th><i class="fa fa-user"></i>Byttevagt</th>
                                                 <th><i class="fa fa-calendar"></i>Dato for oprettelse</th>
                                                 <th><i class="fa fa-calendar"></i>Vagtdato</th>
                                                 <th><i class="fa fa-clock-o"></i>Tid</th>

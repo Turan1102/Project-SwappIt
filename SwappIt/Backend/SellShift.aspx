@@ -45,26 +45,6 @@
         <div class="portlet-body form">
             <div class="tab-content">
 
-                <!-- Popup kvittering start -->
-                <div class="modal fade" id="receipt" tabindex="-1" role="receipt" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                <h2 class="modal-title">Kvittering for salg</h2>
-                            </div>
-                            <div class="modal-body">
-                                <!-- Popup besked start -->
-                                <h4>Dit salg af vagt er nu gennemført!</h4>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn red" data-dismiss="modal"><i class=""></i>Afslut</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Popup kvittering slut -->
-
                 <div class="tab-pane active" id="portlet_tab2_1">
                     <div class="form-horizontal form-bordered form-row-stripped">
                         <div class="form-body">
@@ -109,6 +89,26 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Vil du bytte denne vagt?</label>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-default">
+                                                <input id="radio1yes" type="radio" class="toggle" runat="server">
+                                                Ja
+                                            </label>
+                                            <label class="btn btn-default active">
+                                                <input id="radio1no" type="radio" class="toggle" runat="server">
+                                                Nej
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
                             <div class="form-actions fluid">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -219,6 +219,25 @@
                                     <select data-container="body" class="bs-select form-control" name="individualDD" id="individualDD" runat="server" multiple="true"></select>
                                 </div>
                             </div>
+
+                                                        <div class="form-group">
+                                <label class="control-label col-md-3">Vil du bytte denne vagt?</label>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-default">
+                                                <input id="radio2yes" type="radio" class="toggle" runat="server">
+                                                Ja
+                                            </label>
+                                            <label class="btn btn-default active">
+                                                <input id="radio2no" type="radio" class="toggle" runat="server">
+                                                Nej
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-actions fluid">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -322,6 +341,25 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Vil du bytte denne vagt?</label>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-default">
+                                                <input id="radio3yes" type="radio" class="toggle" runat="server">
+                                                Ja
+                                            </label>
+                                            <label class="btn btn-default active">
+                                                <input id="radio3no" type="radio" class="toggle" runat="server">
+                                                Nej
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-actions fluid">
                                 <div class="row">
                                     <div class="col-md-12">

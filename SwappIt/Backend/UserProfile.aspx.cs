@@ -13,30 +13,15 @@ namespace Backend
 {
     public partial class UserProfile : AdminPage
     {
-        public string tab1;
-        public string tab2;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 FillPersonalInformations();
-                tab1 = "active";
-                tab2 = "";
             }
-            if (Request["succes"] != null)
-            {
-                if (Request["succes"].ToString() == "true")
-                {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "showDialogue", "showDialogue()", true);
-                    if (Request["tab"].ToString() == "2")
-                    {
-                        tab2 = "active";
-                        tab1 = "";
-                    }
-            
-                }
-            }
+
         }
 
         private void FillPersonalInformations()
@@ -50,6 +35,20 @@ namespace Backend
                 phoneNumber.Value = dt.Rows[0]["PhoneNumber"].ToString(); 
             }
 
+
+        }
+
+        protected void btnSavePassword_Click(object sender, EventArgs e)
+        {
+            if (validateNewPsw.IsValid && validateOldPsw.IsValid && validateRepNewPsw.IsValid)
+            {
+                List<SqlParameter> p = new List<SqlParameter>();
+                p.Add(new SqlParameter("EIID", ui.Id));
+                p.Add(new SqlParameter("Password", newPsw.Value));
+                string SQL = "UPDATE Login SET Password = @Password WHERE EIID = @EIID";
+                db.ExecuteUpdate(SQL, p);
+
+            }
 
         }
 
@@ -72,21 +71,6 @@ namespace Backend
 
         }
 
-        protected void btnSavePassword_Click(object sender, EventArgs e)
-        {
-            if (validateNewPsw.IsValid && validateOldPsw.IsValid && validateRepNewPsw.IsValid)
-            {
-                List<SqlParameter> p = new List<SqlParameter>();
-                p.Add(new SqlParameter("EIID", ui.Id));
-                p.Add(new SqlParameter("Password", newPsw.Value));
-                string SQL = "UPDATE Login SET Password = @Password WHERE EIID = @EIID";
-                db.ExecuteUpdate(SQL, p);
-
-                Response.Redirect(Request.RawUrl + "?succes=true&tab=2");
-            }
-
-        }
-
         protected void btnSavePersonal_Click(object sender, EventArgs e)
         {
             if (validatePhoneNumber.IsValid && validateEmail.IsValid)
@@ -98,8 +82,6 @@ namespace Backend
 
                 string SQL = "UPDATE Employee SET Email=@Email, PhoneNumber=@PhoneNumber WHERE IID=@EIID";
                 db.ExecuteUpdate(SQL, p);
-
-                Response.Redirect(Request.RawUrl + "?succes=true&tab=1");
 
             }
 

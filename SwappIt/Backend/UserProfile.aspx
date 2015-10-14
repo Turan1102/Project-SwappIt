@@ -45,29 +45,6 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolderWithLinkButton" runat="server">
 
-
-
-    <!-- Popup start -->
-    <div class="modal fade" id="dialogue" tabindex="-1" role="dialogue" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h2 class="modal-title">Profil ændringer</h2>
-                </div>
-                <div class="modal-body">
-                    <!-- Popup besked start -->
-                    <h4>Dine ændringer er nu gennemført!</h4>
-                </div>
-                <div class="modal-footer">
-                                <button type="button" class="btn red" data-dismiss="modal"><i class="fa fa-times"></i> Luk</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Popup slut -->
-
-
     <div class="portlet box blue">
         <div class="portlet-title">
             <div class="caption">
@@ -85,7 +62,7 @@
         <div class="portlet-body form">
             <div class="tab-content">
 
-                <div class="tab-pane <%=tab1%>" id="portlet_tab1">
+                <div class="tab-pane active" id="portlet_tab1">
 
                     <asp:Panel ID="Panel1" runat="server">
                         <asp:UpdatePanel ID="UpdatePanel1" UpdateMode="Conditional" runat="server">
@@ -116,7 +93,7 @@
                                         </div>
                                         <div class="form-actions fluid">
                                             <div class="row">
-                                                <div class="col-md-4">
+                                                <div class="col-md-12">
                                                     <div class="col-md-offset-3 col-md-9">
                                                         <asp:LinkButton ID="btnSavePersonal" CssClass="btn green" runat="server" OnClick="btnSavePersonal_Click"><i class="fa fa-check"></i> Gem personlige ændringer</asp:LinkButton>
                                                     </div>
@@ -136,7 +113,7 @@
 
                 </div>
 
-                <div class="tab-pane <%=tab2%>" id="portlet_tab2">
+                <div class="tab-pane" id="portlet_tab2">
 
                     <asp:Panel ID="Panel" runat="server">
                         <asp:UpdatePanel ID="UpdatePanel2" UpdateMode="Conditional" runat="server">
@@ -194,13 +171,6 @@
         </div>
     </div>
 
-    <script>
-        function showDialogue() {
-            $(document).ready(function () {
-                $('#dialogue').modal('show')
-            });
-        }
-    </script>
 
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="test" runat="server">

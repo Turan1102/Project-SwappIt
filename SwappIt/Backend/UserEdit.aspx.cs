@@ -126,6 +126,7 @@ namespace Backend
                 }
             }
 
+            // fill role dropdown
             p.Clear();
             p.Add(new SqlParameter("EIID", currentId));
             DataTable dt3 = db.GetDataSet("SELECT RoleIID FROM relaUserRole WHERE EIID=@EIID", p).Table;

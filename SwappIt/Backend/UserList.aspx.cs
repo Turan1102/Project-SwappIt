@@ -22,7 +22,7 @@ namespace Backend
             }
             if (Request["activateid"] != null)
             {
-                ToggleInactive(Request["activateid"].ToString());
+                ToggleEmployeeInactive(Request["activateid"].ToString());
             }
 
             if (ui.haveRights("list"))
@@ -85,27 +85,6 @@ namespace Backend
             }
         }
 
-        public void ToggleInactive(string id)
-        {
-            if (ui.haveRights("slet"))
-            {
-                List<SqlParameter> p1 = new List<SqlParameter>();
-                p1.Add(new SqlParameter("IID", id));
-                DataTable dt1 = db.GetDataSet("SELECT * FROM Employee WHERE IID=@IID", p1).Table;
-                if (dt1.Rows.Count > 0)
-                {
-                    DataRow r = dt1.Rows[0];
-
-                    List<SqlParameter> p2 = new List<SqlParameter>();
-                    p2.Add(new SqlParameter("IID", id));
-                    p2.Add(new SqlParameter("Inactive", (r["Inactive"].ToString() == "1" ? "0" : "1")));
-                    db.ExecuteUpdate("UPDATE Employee SET Inactive=@Inactive WHERE IID=@IID", p2);
-                    // AddToastrSucces("Status", "Bruger " + r["Name"] + " er blevet " + (r["Inactive"].ToString() == "1" ? "aktiverede" : "deaktiverede"));
-
-                }
-
-            }
-        }
 
     }
 }

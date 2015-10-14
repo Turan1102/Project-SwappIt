@@ -40,6 +40,24 @@ namespace Backend {
         protected global::System.Web.UI.HtmlControls.HtmlInputText endTime0;
         
         /// <summary>
+        /// radio1yes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radio1yes;
+        
+        /// <summary>
+        /// radio1no control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radio1no;
+        
+        /// <summary>
         /// Panel control.
         /// </summary>
         /// <remarks>
@@ -103,6 +121,24 @@ namespace Backend {
         protected global::System.Web.UI.HtmlControls.HtmlSelect individualDD;
         
         /// <summary>
+        /// radio2yes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radio2yes;
+        
+        /// <summary>
+        /// radio2no control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radio2no;
+        
+        /// <summary>
         /// Panel1 control.
         /// </summary>
         /// <remarks>
@@ -155,6 +191,24 @@ namespace Backend {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText endTime2;
+        
+        /// <summary>
+        /// radio3yes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radio3yes;
+        
+        /// <summary>
+        /// radio3no control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radio3no;
         
         /// <summary>
         /// Panel2 control.

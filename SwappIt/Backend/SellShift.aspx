@@ -440,6 +440,28 @@
                         </tbody>
                     </table>
                     </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover dataTable">
+                            <thead>
+                                <tr>
+                                    <th><i class="fa fa-calendar-o"></i><%=Session["tradeType1"].ToString()%> til enkelte</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <% foreach (ListItem i in (ListItemCollection)Session["IndividualDD"])
+                                   {
+                                %>
+                                <tr>
+                                    <td><%=i.Text%></td>
+                                </tr>
+                                <%
+                       }
+                                %>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
 
@@ -448,7 +470,7 @@
                         <div class="col-md-12">
                             <div class="col-md-offset-3 col-md-9">
                                 <asp:LinkButton ID="LinkButton2" CommandArgument="decline" CssClass="btn red" runat="server" OnClick="SellShift_Click"><i class="fa fa-times"></i> Afbryd</asp:LinkButton>
-                                <asp:LinkButton ID="LinkButton3" CssClass="btn green" runat="server" OnClick="SellShiftToIndividualButton_Click"><i class="fa fa-check"></i> Sælg til alle </asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton3" CssClass="btn green" runat="server" OnClick="SellShiftToIndividualButton_Click"><i class="fa fa-check"></i> Sælg til enkelte </asp:LinkButton>
                             </div>
                         </div>
                     </div>
@@ -512,7 +534,7 @@
                         <div class="col-md-12">
                             <div class="col-md-offset-3 col-md-9">
                                 <asp:LinkButton ID="LinkButton4" CommandArgument="decline" CssClass="btn red" runat="server" OnClick="SellShift_Click"><i class="fa fa-times"></i> Afbryd</asp:LinkButton>
-                                <asp:LinkButton ID="LinkButton5" CssClass="btn green" runat="server" OnClick="SellShiftToCloseResponsibleButton_Click"><i class="fa fa-check"></i> Sælg til alle </asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton5" CssClass="btn green" runat="server" OnClick="SellShiftToCloseResponsibleButton_Click"><i class="fa fa-check"></i> Sælg til lukkeansvarlige </asp:LinkButton>
                             </div>
                         </div>
                     </div>

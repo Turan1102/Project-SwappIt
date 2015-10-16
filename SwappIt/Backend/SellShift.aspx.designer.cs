@@ -40,49 +40,40 @@ namespace Backend {
         protected global::System.Web.UI.HtmlControls.HtmlInputText endTime0;
         
         /// <summary>
-        /// radio1yes control.
+        /// radioSell1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radio1yes;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radioSell1;
         
         /// <summary>
-        /// radio1no control.
+        /// radioTrade1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radio1no;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radioTrade1;
         
         /// <summary>
-        /// Panel control.
+        /// radioSellTrade1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radioSellTrade1;
         
         /// <summary>
-        /// UpdatePanel control.
+        /// btnSellToAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel;
-        
-        /// <summary>
-        /// LinkBtnSaveToAll control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkBtnSaveToAll;
+        protected global::System.Web.UI.WebControls.LinkButton btnSellToAll;
         
         /// <summary>
         /// shiftDate1 control.
@@ -121,49 +112,40 @@ namespace Backend {
         protected global::System.Web.UI.HtmlControls.HtmlSelect individualDD;
         
         /// <summary>
-        /// radio2yes control.
+        /// radioSell2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radio2yes;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radioSell2;
         
         /// <summary>
-        /// radio2no control.
+        /// radioTrade2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radio2no;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radioTrade2;
         
         /// <summary>
-        /// Panel1 control.
+        /// radioSellTrade2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radioSellTrade2;
         
         /// <summary>
-        /// UpdatePanel1 control.
+        /// btnSellToIndividual control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
-        /// <summary>
-        /// LinkBtnSaveToIndividual control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkBtnSaveToIndividual;
+        protected global::System.Web.UI.WebControls.LinkButton btnSellToIndividual;
         
         /// <summary>
         /// shiftDate2 control.
@@ -193,48 +175,93 @@ namespace Backend {
         protected global::System.Web.UI.HtmlControls.HtmlInputText endTime2;
         
         /// <summary>
-        /// radio3yes control.
+        /// radioSell3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radio3yes;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radioSell3;
         
         /// <summary>
-        /// radio3no control.
+        /// radioTrade3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radio3no;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radioTrade3;
         
         /// <summary>
-        /// Panel2 control.
+        /// radioSellTrade3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radioSellTrade3;
         
         /// <summary>
-        /// UpdatePanel2 control.
+        /// btnSellToCloseResponsible control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        protected global::System.Web.UI.WebControls.LinkButton btnSellToCloseResponsible;
         
         /// <summary>
-        /// LinkBtnSaveToCloseResponsible control.
+        /// LinkButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkBtnSaveToCloseResponsible;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        
+        /// <summary>
+        /// LinkBtnTradeShift control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkBtnTradeShift;
+        
+        /// <summary>
+        /// LinkButton2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
+        
+        /// <summary>
+        /// LinkButton3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton3;
+        
+        /// <summary>
+        /// LinkButton4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton4;
+        
+        /// <summary>
+        /// LinkButton5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton5;
     }
 }

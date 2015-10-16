@@ -17,6 +17,9 @@
     <link href="css/layout.css" rel="stylesheet" type="text/css" />
     <link id="style_color" href="css/themes/darkblue.css" rel="stylesheet" type="text/css" />
     <link href="css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/icheck/skins/all.css" rel="stylesheet">
+    <!-- END THEME STYLES -->
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="pagetitle" runat="server">
 </asp:Content>
@@ -25,6 +28,10 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolderWithLinkButton" runat="server">
+
+            <% if (Request.QueryString["shiftType"] == null)
+           {%>
+
     <div class="portlet box blue">
         <div class="portlet-title">
             <div class="caption">
@@ -32,20 +39,20 @@
             </div>
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a href="#portlet_tab2_1" data-toggle="tab"><i class="fa fa-users"></i>Alle</a>
+                    <a href="#portlet_tab1_1" data-toggle="tab"><i class="fa fa-users"></i>Alle</a>
                 </li>
                 <li class="">
-                    <a href="#portlet_tab2_2" data-toggle="tab"><i class="fa fa-user"></i>Enkelte</a>
+                    <a href="#portlet_tab2_1" data-toggle="tab"><i class="fa fa-user"></i>Enkelte</a>
                 </li>
                 <li class="">
-                    <a href="#portlet_tab2_3" data-toggle="tab"><i class="fa fa-key"></i>Lukkevagter</a>
+                    <a href="#portlet_tab3_1" data-toggle="tab"><i class="fa fa-key"></i>Lukkevagter</a>
                 </li>
             </ul>
         </div>
         <div class="portlet-body form">
             <div class="tab-content">
 
-                <div class="tab-pane active" id="portlet_tab2_1">
+                <div class="tab-pane active" id="portlet_tab1_1">
                     <div class="form-horizontal form-bordered form-row-stripped">
                         <div class="form-body">
                             <div class="form-group">
@@ -63,7 +70,6 @@
                                             <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                         </span>
                                     </div>
-                                    <!-- /input-group -->
                                     <span class="help-block">Vælg dato </span>
                                 </div>
                             </div>
@@ -89,86 +95,53 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="form-group">
-                                <label class="control-label col-md-3">Vil du bytte denne vagt?</label>
+                                <label class="control-label col-md-3">Vagt indstillinger</label>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                        <div class="btn-group" data-toggle="buttons">
-                                            <label class="btn btn-default">
-                                                <input id="radio1yes" type="radio" class="toggle" runat="server">
-                                                Ja
+                                        <div class="icheck-list">
+                                            <label class="">
+                                                <div class="iradio_minimal-grey" style="position: relative;">
+                                                    <input id="radioSell1" type="radio" name="radio0" checked="" class="icheck" runat="server" style="position: absolute; opacity: 0;">
+                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255); border: 0px; opacity: 0; background-position: initial initial; background-repeat: initial initial;"></ins>
+                                                </div>
+                                                Salg
                                             </label>
-                                            <label class="btn btn-default active">
-                                                <input id="radio1no" type="radio" class="toggle" runat="server">
-                                                Nej
+                                            <label class="">
+                                                <div class="iradio_minimal-grey" style="position: relative;">
+                                                    <input id="radioTrade1" type="radio" name="radio0" class="icheck" runat="server" style="position: absolute; opacity: 0;">
+                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255); border: 0px; opacity: 0; background-position: initial initial; background-repeat: initial initial;"></ins>
+                                                </div>
+                                                Bytte
+                                            </label>
+                                            <label class="">
+                                                <div class="iradio_minimal-grey" style="position: relative;">
+                                                    <input id="radioSellTrade1" type="radio" name="radio0" class="icheck" runat="server" style="position: absolute; opacity: 0;">
+                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255); border: 0px; opacity: 0; background-position: initial initial; background-repeat: initial initial;"></ins>
+                                                </div>
+                                                Bytte eller salg
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
-
                             <div class="form-actions fluid">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="col-md-offset-3 col-md-9">
-                                            <a class="btn green" id="btnSellToAll" name="btnSellToAll" data-toggle="modal" href="#sellToAll">Sælg til alle </a>
+                                             <asp:LinkButton ID="btnSellToAll" CommandArgument="0" CssClass="btn green" runat="server" OnClick="SellShift_Click"><i class="fa fa-check"></i> Sælg til alle </asp:LinkButton>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Popup bekræftelse start -->
-                            <div class="modal fade" id="sellToAll" tabindex="-1" role="sellToAll" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                            <h2 class="modal-title">Sælg vagt til alle</h2>
-                                        </div>
-                                        <div class="modal-body">
-                                            <!-- Popup besked start -->
-                                            <h4>Du vil sælge denne vagt til alle</h4>
-                                            <br />
-                                            <table class="table table-striped table-bordered table-hover dataTable">
-                                                <thead>
-                                                    <tr>
-                                                        <th><i class="fa fa-calendar-o"></i> Dato</th>
-                                                        <th><i class="fa fa-clock-o"></i> Starttid</th>
-                                                        <th><i class="fa fa-clock-o"></i> Sluttid</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td id="msgDate0"></td>
-                                                        <td id="msgStartTime0"></td>
-                                                        <td id="msgEndTime0"></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <!-- Popup besked slut -->
-                                        </div>
-                                        <div class="modal-footer">
-                                            <!-- UpdatePanel, fordi vi ikke må miste data -->
-                                            <asp:Panel ID="Panel" runat="server">
-                                                <asp:UpdatePanel ID="UpdatePanel" UpdateMode="Conditional" runat="server">
-                                                    <ContentTemplate>
-                                                        <button type="button" class="btn red" data-dismiss="modal"><i class="fa fa-times"></i>Fortryd</button>
-                                                        <asp:LinkButton ID="LinkBtnSaveToAll" CssClass="btn green" runat="server" OnClick="SellShiftToAllButton_Click" OnClientClick="javascript:return SwitchToReceipt();"><i class="fa fa-check"></i> Bekræft</asp:LinkButton>
-                                                    </ContentTemplate>
-                                                </asp:UpdatePanel>
-                                            </asp:Panel>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Popup bekræftelse slut -->
-
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" id="portlet_tab2_2">
+
+
+
+
+                <div class="tab-pane" id="portlet_tab2_1">
 
                     <div class="form-horizontal form-bordered form-row-stripped">
                         <div class="form-body">
@@ -220,18 +193,31 @@
                                 </div>
                             </div>
 
-                                                        <div class="form-group">
-                                <label class="control-label col-md-3">Vil du bytte denne vagt?</label>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Vagt indstillinger</label>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                        <div class="btn-group" data-toggle="buttons">
-                                            <label class="btn btn-default">
-                                                <input id="radio2yes" type="radio" class="toggle" runat="server">
-                                                Ja
+                                        <div class="icheck-list">
+                                            <label class="">
+                                                <div class="iradio_minimal-grey" style="position: relative;">
+                                                    <input id="radioSell2" type="radio" name="radio1" checked="" class="icheck" runat="server" style="position: absolute; opacity: 0;">
+                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255); border: 0px; opacity: 0; background-position: initial initial; background-repeat: initial initial;"></ins>
+                                                </div>
+                                                Salg
                                             </label>
-                                            <label class="btn btn-default active">
-                                                <input id="radio2no" type="radio" class="toggle" runat="server">
-                                                Nej
+                                            <label class="">
+                                                <div class="iradio_minimal-grey" style="position: relative;">
+                                                    <input id="radioTrade2" type="radio" name="radio1" class="icheck" runat="server" style="position: absolute; opacity: 0;">
+                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255); border: 0px; opacity: 0; background-position: initial initial; background-repeat: initial initial;"></ins>
+                                                </div>
+                                                Bytte
+                                            </label>
+                                            <label class="">
+                                                <div class="iradio_minimal-grey" style="position: relative;">
+                                                    <input id="radioSellTrade2" type="radio" name="radio1" class="icheck" runat="server" style="position: absolute; opacity: 0;">
+                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255); border: 0px; opacity: 0; background-position: initial initial; background-repeat: initial initial;"></ins>
+                                                </div>
+                                                Bytte eller salg
                                             </label>
                                         </div>
                                     </div>
@@ -242,62 +228,20 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="col-md-offset-3 col-md-9">
-                                            <a class="btn green" id="btnSellToIndividual" name="btnSellToIndividual" data-toggle="modal" href="#sellToIndividual">Sælg til valgte </a>
+                                             <asp:LinkButton ID="btnSellToIndividual" CommandArgument="1" CssClass="btn green" runat="server" OnClick="SellShift_Click" OnClientClick="javascript:return SwitchToReceipt();"><i class="fa fa-check"></i> Sælg til valgte </asp:LinkButton>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Popup bekræftelse start -->
-                            <div class="modal fade" id="sellToIndividual" tabindex="-1" role="sellToIndividual" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                            <h2 class="modal-title">Sælg vagt til valgte</h2>
-                                        </div>
-                                        <div class="modal-body">
-                                           <!-- Popup besked start -->
-                                            <h4>Du vil sælge denne vagt til valgte</h4>
-                                            <br />
-                                            <table class="table table-striped table-bordered table-hover dataTable">
-                                                <thead>
-                                                    <tr>
-                                                        <th><i class="fa fa-calendar-o"></i> Dato</th>
-                                                        <th><i class="fa fa-clock-o"></i> Starttid</th>
-                                                        <th><i class="fa fa-clock-o"></i> Sluttid</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td id="msgDate1"></td>
-                                                        <td id="msgStartTime1"></td>
-                                                        <td id="msgEndTime1"></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <!-- Popup besked slut -->
-                                        </div>
-                                        <div class="modal-footer">
-                                            <!-- UpdatePanel, fordi vi ikke må miste data -->
-                                            <asp:Panel ID="Panel1" runat="server">
-                                                <asp:UpdatePanel ID="UpdatePanel1" UpdateMode="Conditional" runat="server">
-                                                    <ContentTemplate>
-                                                        <button type="button" class="btn red" data-dismiss="modal"><i class="fa fa-times"></i>Fortryd</button>
-                                                        <asp:LinkButton ID="LinkBtnSaveToIndividual" CssClass="btn green" runat="server" OnClick="SellShiftToIndividualButton_Click" OnClientClick="javascript:return SwitchToReceipt();"><i class="fa fa-check"></i> Sælg til valgte</asp:LinkButton>
-                                                    </ContentTemplate>
-                                                </asp:UpdatePanel>
-                                            </asp:Panel>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Popup bekræftelse slut -->
 
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" id="portlet_tab2_3">
+
+
+
+
+                <div class="tab-pane" id="portlet_tab3_1">
                     <div class="form-horizontal form-bordered form-row-stripped">
                         <div class="form-body">
                             <div class="form-group">
@@ -343,85 +287,247 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label col-md-3">Vil du bytte denne vagt?</label>
+                                <label class="control-label col-md-3">Vagt indstillinger</label>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                        <div class="btn-group" data-toggle="buttons">
-                                            <label class="btn btn-default">
-                                                <input id="radio3yes" type="radio" class="toggle" runat="server">
-                                                Ja
+                                        <div class="icheck-list">
+                                            <label class="">
+                                                <div class="iradio_minimal-grey" style="position: relative;">
+                                                    <input id="radioSell3" type="radio" name="radio2" checked="" class="icheck" runat="server" style="position: absolute; opacity: 0;">
+                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255); border: 0px; opacity: 0; background-position: initial initial; background-repeat: initial initial;"></ins>
+                                                </div>
+                                                Salg
                                             </label>
-                                            <label class="btn btn-default active">
-                                                <input id="radio3no" type="radio" class="toggle" runat="server">
-                                                Nej
+                                            <label class="">
+                                                <div class="iradio_minimal-grey" style="position: relative;">
+                                                    <input id="radioTrade3" type="radio" name="radio2" class="icheck" runat="server" style="position: absolute; opacity: 0;">
+                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255); border: 0px; opacity: 0; background-position: initial initial; background-repeat: initial initial;"></ins>
+                                                </div>
+                                                Bytte
+                                            </label>
+                                            <label class="">
+                                                <div class="iradio_minimal-grey" style="position: relative;">
+                                                    <input id="radioSellTrade3" type="radio" name="radio2" class="icheck" runat="server" style="position: absolute; opacity: 0;">
+                                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255); border: 0px; opacity: 0; background-position: initial initial; background-repeat: initial initial;"></ins>
+                                                </div>
+                                                Bytte eller salg
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="form-actions fluid">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="col-md-offset-3 col-md-9">
-                                            <a class="btn green" id="btnSellToCloseResponsible" name="btnSellToCloseResponsible" data-toggle="modal" href="#sellToCloseResponsible">Sælg til alle lukkeansvarlige </a>
+                                             <asp:LinkButton ID="btnSellToCloseResponsible" CommandArgument="2" CssClass="btn green" runat="server" OnClick="SellShift_Click"><i class="fa fa-check"></i> Sælg til lukkeansvarlige </asp:LinkButton>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Popup bekræftelse start -->
-                            <div class="modal fade" id="sellToCloseResponsible" tabindex="-1" role="sellToCloseResponsible" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                            <h2 class="modal-title">Sælg vagt til alle lukkeansvarlige</h2>
-                                        </div>
-                                        <div class="modal-body">
-                                            <!-- Popup besked start -->
-                                            <h4>Du vil sælge denne vagt til alle lukkeansvarlige</h4>
-                                            <br />
-                                            <table class="table table-striped table-bordered table-hover dataTable">
-                                                <thead>
-                                                    <tr>
-                                                        <th><i class="fa fa-calendar-o"></i> Dato</th>
-                                                        <th><i class="fa fa-clock-o"></i> Starttid</th>
-                                                        <th><i class="fa fa-clock-o"></i> Sluttid</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td id="msgDate2"></td>
-                                                        <td id="msgStartTime2"></td>
-                                                        <td id="msgEndTime2"></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <!-- Popup besked slut -->
-                                        </div>
-                                        <div class="modal-footer">
-                                            <!-- UpdatePanel, fordi vi ikke må miste data -->
-                                            <asp:Panel ID="Panel2" runat="server">
-                                                <asp:UpdatePanel ID="UpdatePanel2" UpdateMode="Conditional" runat="server">
-                                                    <ContentTemplate>
-                                                        <button type="button" class="btn red" data-dismiss="modal"><i class="fa fa-times"></i>Fortryd</button>
-                                                        <asp:LinkButton ID="LinkBtnSaveToCloseResponsible" CssClass="btn green" runat="server" OnClick="SellShiftToCloseResponsibleButton_Click" OnClientClick="javascript:return SwitchToReceipt();"><i class="fa fa-check"></i> Bekræft</asp:LinkButton>
-                                                    </ContentTemplate>
-                                                </asp:UpdatePanel>
-                                            </asp:Panel>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Popup bekræftelse slut -->
-
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
+
+
+    <% } else { %>
+
+            <% if (Request.QueryString["shiftType"] == "0")
+           { %>
+
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-gift"></i> Salg af vagt til alle
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <div class="form-horizontal form-bordered form-row-stripped">
+
+                <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="col-md-3 col-md-9">
+                                <h4>Du vil sælge denne vagt til alle </h4>
+                            </div>
+                        </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover dataTable">
+                        <thead>
+                            <tr>
+                                <th><i class="fa fa-calendar-o"></i>Dato</th>
+                                <th><i class="fa fa-clock-o"></i>Starttid</th>
+                                <th><i class="fa fa-clock-o"></i>Sluttid</th>
+                                <th><i class="fa fa-clock-o"></i>Vagtens type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><%=Session["shiftDate0"].ToString()%></td>
+                                <td><%=Session["startTime0"].ToString()%></td>
+                                <td><%=Session["endTime0"].ToString()%></td>
+                                <td><%=Session["tradeType0"].ToString()%></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+
+
+                <div class="form-actions fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-offset-3 col-md-9">
+                                <asp:LinkButton ID="LinkButton1" CommandArgument="decline" CssClass="btn red" runat="server" OnClick="SellShift_Click"><i class="fa fa-times"></i> Afbryd</asp:LinkButton>
+                                <asp:LinkButton ID="LinkBtnTradeShift" CssClass="btn green" runat="server" OnClick="SellShiftToAllButton_Click"><i class="fa fa-check"></i> Sælg til alle </asp:LinkButton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <%} %>
+
+            <% if (Request.QueryString["shiftType"] == "1")
+           { %>
+
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-gift"></i> Salg af vagt til enkelte
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <div class="form-horizontal form-bordered form-row-stripped">
+
+                <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="col-md-3 col-md-9">
+                                <h4>Du vil sælge denne vagt til enkelte </h4>
+                            </div>
+                        </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover dataTable">
+                        <thead>
+                            <tr>
+                                <th><i class="fa fa-calendar-o"></i>Dato</th>
+                                <th><i class="fa fa-clock-o"></i>Starttid</th>
+                                <th><i class="fa fa-clock-o"></i>Sluttid</th>
+                                <th><i class="fa fa-clock-o"></i>Vagtens type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><%=Session["shiftDate1"].ToString()%></td>
+                                <td><%=Session["startTime1"].ToString()%></td>
+                                <td><%=Session["endTime1"].ToString()%></td>
+                                <td><%=Session["tradeType1"].ToString()%></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+
+
+                <div class="form-actions fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-offset-3 col-md-9">
+                                <asp:LinkButton ID="LinkButton2" CommandArgument="decline" CssClass="btn red" runat="server" OnClick="SellShift_Click"><i class="fa fa-times"></i> Afbryd</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton3" CssClass="btn green" runat="server" OnClick="SellShiftToIndividualButton_Click"><i class="fa fa-check"></i> Sælg til alle </asp:LinkButton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <%} %>
+
+
+            <% if (Request.QueryString["shiftType"] == "2")
+           { %>
+
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-gift"></i> Salg af vagt til lukkeansvarlige
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <div class="form-horizontal form-bordered form-row-stripped">
+
+                <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="col-md-3 col-md-9">
+                                <h4>Du vil sælge denne vagt til lukkeansvarlige </h4>
+                            </div>
+                        </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover dataTable">
+                        <thead>
+                            <tr>
+                                <th><i class="fa fa-calendar-o"></i>Dato</th>
+                                <th><i class="fa fa-clock-o"></i>Starttid</th>
+                                <th><i class="fa fa-clock-o"></i>Sluttid</th>
+                                <th><i class="fa fa-clock-o"></i>Vagtens type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><%=Session["shiftDate2"].ToString()%></td>
+                                <td><%=Session["startTime2"].ToString()%></td>
+                                <td><%=Session["endTime2"].ToString()%></td>
+                                <td><%=Session["tradeType2"].ToString()%></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+
+
+                <div class="form-actions fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-offset-3 col-md-9">
+                                <asp:LinkButton ID="LinkButton4" CommandArgument="decline" CssClass="btn red" runat="server" OnClick="SellShift_Click"><i class="fa fa-times"></i> Afbryd</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton5" CssClass="btn green" runat="server" OnClick="SellShiftToCloseResponsibleButton_Click"><i class="fa fa-check"></i> Sælg til alle </asp:LinkButton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <%} %>
+
+    <% } %>
+
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="test" runat="server">
 </asp:Content>
@@ -449,6 +555,7 @@
     <script type="text/javascript" src="plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
     <script type="text/javascript" src="plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
     <script type="text/javascript" src="plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="plugins/icheck/icheck.min.js"></script>
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
     <script src="scripts/metronic.js" type="text/javascript"></script>
@@ -457,6 +564,7 @@
     <script src="scripts/demo.js" type="text/javascript"></script>
     <script src="scripts/components-dropdowns.js"></script>
     <script src="scripts/components-pickers.js"></script>
+    <script src="pages/scripts/form-icheck.js"></script>
     <script>
         jQuery(document).ready(function () {
             // initiate layout and plugins
@@ -466,6 +574,7 @@
             Demo.init(); // init demo features
             ComponentsDropdowns.init();
             ComponentsPickers.init();
+            FormiCheck.init(); // init page demo
         });
     </script>
     <!-- END GOOGLE RECAPTCHA -->
@@ -506,16 +615,6 @@
 
         });
 
-        function SwitchToReceipt() {
-
-            $("#sellToAll").hide();
-            $("#sellToCloseResponsible").hide();
-            $("#sellToIndividual").hide();
-
-            $(".modal-backdrop").hide();
-            $("#receipt").modal('show');
-
-        }
 
 
     </script>

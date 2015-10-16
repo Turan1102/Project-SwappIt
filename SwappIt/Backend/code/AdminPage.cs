@@ -131,7 +131,7 @@ namespace Backend.code
             return "Ikke Defineret";
         }
 
-        public string convertResponseTradeStatusToString(string statusCode)
+        public string convertTradeStatusToString(string statusCode)
         {
             switch (statusCode)
             {
@@ -142,6 +142,21 @@ namespace Backend.code
                 case "2":
                     return "Godkendt (sælger)";
 
+            }
+
+            return "Ikke Defineret";
+        }
+
+        public string convertTradeTypeToString(string tradeTypeCode)
+        {
+            switch (tradeTypeCode)
+            {
+                case "-1": // -1 bør man ikke smide i databasen. Den bruges primært til at vise 'Salg' på fx en side. 
+                    return "Salg";
+                case "0":
+                    return "Bytte";
+                case "1":
+                    return "Bytte og salg";
             }
 
             return "Ikke Defineret";

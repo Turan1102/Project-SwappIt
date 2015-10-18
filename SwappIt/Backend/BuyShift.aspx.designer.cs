@@ -58,15 +58,6 @@ namespace Backend {
         protected global::System.Web.UI.WebControls.LinkButton LinkBtnBuyShift;
         
         /// <summary>
-        /// validateShiftDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator validateShiftDate;
-        
-        /// <summary>
         /// tableOut4 control.
         /// </summary>
         /// <remarks>
@@ -76,33 +67,6 @@ namespace Backend {
         protected global::System.Web.UI.WebControls.Literal tableOut4;
         
         /// <summary>
-        /// shiftDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText shiftDate;
-        
-        /// <summary>
-        /// startTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText startTime;
-        
-        /// <summary>
-        /// endTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText endTime;
-        
-        /// <summary>
         /// shiftNote control.
         /// </summary>
         /// <remarks>
@@ -110,6 +74,15 @@ namespace Backend {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea shiftNote;
+        
+        /// <summary>
+        /// validateShiftNote control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator validateShiftNote;
         
         /// <summary>
         /// LinkButton1 control.

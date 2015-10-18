@@ -452,11 +452,13 @@
 
                                 <% foreach (ListItem i in (ListItemCollection)Session["IndividualDD"])
                                    {
+                                       if (i.Selected) {
                                 %>
                                 <tr>
                                     <td><%=i.Text%></td>
                                 </tr>
                                 <%
+                       }
                        }
                                 %>
                             </tbody>

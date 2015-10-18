@@ -176,13 +176,13 @@
                 <div class="form-body">
                     <div class="form-group">
                         <div class="alert alert-success">
-                            Du er i færd med at bytte nedenstående vagt
+                            Du er i færd med at bytte en vagt
                             <br />
-                            <asp:CustomValidator ID="validateShiftDate" runat="server" ErrorMessage="Byttedato skal udfyldes" ValidateEmptyText="True" ControlToValidate="shiftDate" OnServerValidate="validateShiftDate_ServerValidate" ForeColor="Red"></asp:CustomValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="table-responsive">
+                            <h4>Du vil bytte følgende vagt</h4>
                             <table id="dataTable4" class="table table-striped table-bordered table-hover dataTable">
                                 <thead>
                                     <tr>
@@ -198,93 +198,18 @@
                             </table>
                         </div>
                     </div>
-                </div>
 
 
-
-
-                <div class="form-group">
-                    <div class="col-md-12">
-                        <div class="col-md-offset-3 col-md-9">
-                            <a class="btn yellow" id="btnStartShiftTradeResponse" data-toggle="modal" href="#ShiftTradeResponse">Tilføj byttevagt retur </a>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Tilføj note</label>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <textarea id="shiftNote" class="form-control" rows="3" runat="server" placeholder="ex. Hej bytter, jeg vil gerne bytte din vagt med min vagt onsdag d. 1. Januar fra 10:30 til 20:30."></textarea>
+                                <asp:CustomValidator ID="validateShiftNote" runat="server" ErrorMessage="En byttevagt skal have en note" ValidateEmptyText="True" ControlToValidate="shiftNote" OnServerValidate="validateShiftNote_ServerValidate" ForeColor="Red"></asp:CustomValidator>
+                                 </div>
                         </div>
                     </div>
-                </div>
 
-
-                <div class="modal fade" id="ShiftTradeResponse" tabindex="-1" role="ShiftTradeResponse" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                <h2 class="modal-title">Dine vagtinformationer</h2>
-                            </div>
-                            <div class="modal-body">
-
-                                <div class="portlet box blue">
-
-                                    <div class="portlet-title">
-                                    </div>
-                                    <div class="portlet-body form">
-                                        <div class="tab-content">
-                                            <div class="form-horizontal form-bordered form-row-stripped">
-                                                <div class="form-body">
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3">Dato</label>
-                                                        <div class="col-md-3">
-                                                            <div class="input-group input-medium date date-picker" data-date-format="yyyy-mm-dd" data-date-start-date="+0d">
-                                                                <input type="text" name="shiftDate" id="shiftDate" runat="server" class="form-control" readonly="">
-                                                                <span class="input-group-btn">
-                                                                    <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
-                                                                </span>
-                                                            </div>
-                                                            <!-- /input-group -->
-                                                            <span class="help-block">Vælg dato </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3">Startid</label>
-                                                        <div class="col-md-3">
-                                                            <div class="input-group">
-                                                                <input type="text" name="startTime" id="startTime" runat="server" class="form-control timepicker timepicker-24">
-                                                                <span class="input-group-btn">
-                                                                    <button class="btn default" type="button"><i class="fa fa-clock-o"></i></button>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3">Sluttid</label>
-                                                        <div class="col-md-3">
-                                                            <div class="input-group">
-                                                                <input type="text" name="endTime" id="endTime" runat="server" class="form-control timepicker timepicker-24">
-                                                                <span class="input-group-btn">
-                                                                    <button class="btn default" type="button"><i class="fa fa-clock-o"></i></button>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3">Valgfri note</label>
-                                                        <div class="col-md-3">
-                                                            <div class="input-group">
-                                                                <textarea id="shiftNote" class="form-control" rows="3" runat="server"></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" id="btnSaveShiftResponse" data-dismiss="modal" class="btn green"><i class="fa fa-check"></i>Tilføj og afslut</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="form-actions fluid">
@@ -438,12 +363,6 @@
             <%= script %>
         });
 
-        $('#btnSaveShiftResponse').click(function () {
-
-            document.getElementById('btnStartShiftTradeResponse').innerHTML = "Ændre byttevagt";
-            document.getElementById('btnStartShiftTradeResponse').className = "btn green";
-
-        });
 
     </script>
 

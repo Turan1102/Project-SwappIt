@@ -23,12 +23,12 @@ namespace Backend
 
         private void Fill()
         {
-            this.fillIndividualDD();
+            this.FillIndividualDD();
         }
 
         protected void SellShift_Click(object sender, EventArgs e)
         {
-            this.createShiftSessions();
+            this.CreateShiftSessions();
             LinkButton btn = (LinkButton)(sender);
             switch (btn.CommandArgument)
             {
@@ -87,31 +87,31 @@ namespace Backend
         }
 
 
-        private void createShiftSessions()
+        private void CreateShiftSessions()
         {
 
             Session["shiftDate0"] = shiftDate0.Value;
             Session["startTime0"] = startTime0.Value;
             Session["endTime0"] = endTime0.Value;
             Session["tradeType0"] = convertTradeTypeToString(this.GetTradeTypeFromRadios("0"));
-            this.createSqlParameterSession("0", shiftDate0.Value, startTime0.Value, endTime0.Value);
+            this.CreateSqlParameterSession("0", shiftDate0.Value, startTime0.Value, endTime0.Value);
 
             Session["shiftDate1"] = shiftDate1.Value;
             Session["startTime1"] = startTime1.Value;
             Session["endTime1"] = endTime1.Value;
             Session["tradeType1"] = convertTradeTypeToString(this.GetTradeTypeFromRadios("1"));
-            this.createSqlParameterSession("1", shiftDate1.Value, startTime1.Value, endTime1.Value);
+            this.CreateSqlParameterSession("1", shiftDate1.Value, startTime1.Value, endTime1.Value);
 
             Session["shiftDate2"] = shiftDate2.Value;
             Session["startTime2"] = startTime2.Value;
             Session["endTime2"] = endTime2.Value;
             Session["tradeType2"] = convertTradeTypeToString(this.GetTradeTypeFromRadios("2"));
-            this.createSqlParameterSession("2", shiftDate2.Value, startTime2.Value, endTime2.Value);
+            this.CreateSqlParameterSession("2", shiftDate2.Value, startTime2.Value, endTime2.Value);
 
             Session["IndividualDD"] = individualDD.Items;
         }
 
-        private void createSqlParameterSession(string shiftType, string date, string timeStart, string timeEnd)
+        private void CreateSqlParameterSession(string shiftType, string date, string timeStart, string timeEnd)
         {
             List<SqlParameter> p = new List<SqlParameter>();
             p.Add(new SqlParameter("Date", date));
@@ -182,7 +182,7 @@ namespace Backend
             }
         }
 
-        private void fillIndividualDD()
+        private void FillIndividualDD()
         {
 
             if (Session["IndividualDD"] != null)

@@ -26,6 +26,10 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolderWithLinkButton" runat="server">
     <div class="portlet box blue">
+
+                <% if (Request.QueryString["command"] == null)
+           {%>
+
         <div class="portlet-title">
             <div class="caption">
                 <i class="fa fa-gift"></i>Mine vagter
@@ -61,8 +65,9 @@
                                             <tr>
                                                 <th><i class="fa fa-user"></i>Købt af</th>
                                                 <th><i class="fa fa-calendar"></i>Vagtdato</th>
-                                                <th><i class="fa fa-clock-o"></i>Tid</th>
                                                 <th><i class="fa fa-shopping-cart"></i>Købsdato</th>
+                                                <th><i class="fa fa-user"></i>Handlinger</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -89,9 +94,9 @@
                                         <thead>
                                             <tr>
                                                 <th><i class="fa fa-user"></i>Solgt til</th>
-                                                <th><i class="fa fa-calendar"></i>Vagtdato</th>
-                                                <th><i class="fa fa-clock-o"></i>Tid</th>
+                                                <th><i class="fa fa-clock-o"></i>Vagttid</th>
                                                 <th><i class="fa fa-shopping-cart"></i>Salgsdato</th>
+                                                <th><i class="fa fa-user"></i>Handlinger</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -119,11 +124,9 @@
                                         <thead>
                                             <tr>
                                                 <th><i class="fa fa-user"></i>Vagtens type</th>
-                                                <th><i class="fa fa-user"></i>Byttevagt</th>
                                                 <th><i class="fa fa-calendar"></i>Dato for oprettelse</th>
                                                 <th><i class="fa fa-calendar"></i>Vagtdato</th>
-                                                <th><i class="fa fa-clock-o"></i>Tid</th>
-                                                <th><i class="fa fa-check"></i>Status</th>
+                                                <th><i class="fa fa-user"></i>Handlinger</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -135,12 +138,74 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
 
 
         </div>
+
+        <%  } else { %>
+
+        <% if (Request.QueryString["command"] == "shiftDetails")
+           { %>
+
+                <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-gift"></i> Vagtdetaljer
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <div class="form-horizontal form-bordered form-row-stripped">
+
+                <div class="form-body">
+                    <div class="form-group">
+                        <div class="alert alert-success">
+                            Detaljer om vagt
+                        </div>
+                    </div>
+
+
+
+
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+
+                            <%--                            <tr>
+                                <td>Repeating Pulsate
+                                </td>
+                                <td>
+                                    <div>
+                                        Repeating Pulsate
+                                    </div>
+                                </td>
+                            </tr>--%>
+
+                            <asp:Literal ID="tableOut4" runat="server"></asp:Literal>
+
+
+                        </tbody>
+                    </table>
+
+
+
+                    <div class="form-actions fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <asp:LinkButton ID="LinkButton1" CssClass="btn red" runat="server" OnClick="Return_Click"><i class="fa fa-reply"></i> Tilbage</asp:LinkButton>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <% } %>
+
+
+        <% } %>
+
     </div>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="test" runat="server">

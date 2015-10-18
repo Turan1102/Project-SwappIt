@@ -67,10 +67,37 @@ namespace Backend.code
                     p2.Add(new SqlParameter("Inactive", (r["Inactive"].ToString() == "1" ? "0" : "1")));
                     db.ExecuteUpdate("UPDATE Employee SET Inactive=@Inactive WHERE IID=@IID", p2);
                     // AddToastrSucces("Status", "Bruger " + r["Name"] + " er blevet " + (r["Inactive"].ToString() == "1" ? "aktiverede" : "deaktiverede"));
-
                 }
-
             }
+        }
+
+        public void ToggleShiftInactive(string shiftId)
+        {
+
+                List<SqlParameter> p1 = new List<SqlParameter>();
+                p1.Add(new SqlParameter("ShiftId", shiftId));
+                DataTable dt1 = db.GetDataSet("SELECT * FROM Shift WHERE IID=@ShiftId", p1).Table;
+                if (dt1.Rows.Count > 0)
+                {
+                    DataRow r = dt1.Rows[0];
+                    List<SqlParameter> p2 = new List<SqlParameter>();
+                    p2.Add(new SqlParameter("ShiftId", shiftId));
+                    p2.Add(new SqlParameter("Inactive", (r["Inactive"].ToString() == "1" ? "0" : "1")));
+                    db.ExecuteUpdate("UPDATE Shift SET Inactive=@Inactive WHERE IID=@ShiftId", p2);
+                }
+        }
+
+        public Boolean CheckIfShiftBought(string shiftId)
+        {
+            List<SqlParameter> p = new List<SqlParameter>();
+            p.Add(new SqlParameter("ShiftID", shiftId));
+            DataTable dt = db.GetDataSet("SELECT ShiftID FROM BuyShiftComplete WHERE ShiftID=@ShiftID;", p).Table;
+
+            if (dt.Rows.Count > 0)
+            {
+                return true;
+            }
+            return false;
         }
 
         public string[] SplitFullname(string fullname)
@@ -124,42 +151,30 @@ namespace Backend.code
                     return "Enkelte";
                 case "2":
                     return "Lukkevagter";
-                case "4":
-                    return "Byttevagt retur";
+                default:
+                    return "Ikke defineret";
             }
 
-            return "Ikke Defineret";
-        }
-
-        public string convertTradeStatusToString(string statusCode)
-        {
-            switch (statusCode)
-            {
-                case "0":
-                    return "Byttevagt modtaget (køber)";
-                case "1":
-                    return "Afvist (sælger)";
-                case "2":
-                    return "Godkendt (sælger)";
-
-            }
-
-            return "Ikke Defineret";
         }
 
         public string convertTradeTypeToString(string tradeTypeCode)
         {
             switch (tradeTypeCode)
             {
-                case "-1": // -1 bør man ikke smide i databasen. Den bruges primært til at vise 'Salg' på fx en side. 
-                    return "Salg";
                 case "0":
                     return "Bytte";
                 case "1":
                     return "Bytte og salg";
+                case "":
+                    return "Salg";
+                case null:
+                    return "Salg";
+                case "-1": // -1 bør man ikke smide i databasen. Den bruges primært til at vise 'Salg' på fx en side. 
+                    return "Salg";
+                default:
+                    return "Ikke defineret";
             }
 
-            return "Ikke Defineret";
         }
 
         public String dateFormater(String date)

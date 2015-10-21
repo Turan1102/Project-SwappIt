@@ -67,6 +67,15 @@ namespace Backend {
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radioSellTrade1;
         
         /// <summary>
+        /// shiftNote0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea shiftNote0;
+        
+        /// <summary>
         /// btnSellToAll control.
         /// </summary>
         /// <remarks>
@@ -139,6 +148,15 @@ namespace Backend {
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radioSellTrade2;
         
         /// <summary>
+        /// shiftNote1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea shiftNote1;
+        
+        /// <summary>
         /// btnSellToIndividual control.
         /// </summary>
         /// <remarks>
@@ -200,6 +218,15 @@ namespace Backend {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radioSellTrade3;
+        
+        /// <summary>
+        /// shiftNote2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea shiftNote2;
         
         /// <summary>
         /// btnSellToCloseResponsible control.

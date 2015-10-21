@@ -44,19 +44,19 @@ namespace Backend
         {
             tableOut3.Text = "";
             List<SqlParameter> p = new List<SqlParameter>();
-            p.Add(new SqlParameter("shiftId", Request["shiftid"].ToString())); 
-            DataTable dt = db.GetDataSet("SELECT e.Firstname, e.Middlename, e.Lastname, s.IID, s.Date, s.StartTime, s.EndTime, s.Type, s.IsTrade FROM Employee e, Shift s WHERE s.IID = @shiftid AND s.EIID = e.IID", p).Table;
+            p.Add(new SqlParameter("shiftId", Request["shiftid"].ToString()));
+            DataTable dt = db.GetDataSet("SELECT e.Firstname, e.Middlename, e.Lastname, s.IID, s.Date, s.StartTime, s.EndTime, s.Type, s.IsTrade, s.Note FROM Employee e, Shift s WHERE s.IID = @shiftid AND s.EIID = e.IID", p).Table;
 
             foreach (DataRow r in dt.Rows)
             {
-                string shiftType = convertShiftTypeToString(r["Type"].ToString());
-                string date = dateFormater(r["Date"].ToString());
+                string shiftType = (r["IsTrade"].ToString() == "1" ? "Byttevagt til " + this.convertShiftTypeToString(r["Type"].ToString().ToLower()) : this.convertShiftTypeToString(r["Type"].ToString().ToLower()));
+                string shiftDate = dateFormater(r["Date"].ToString());
 
                 tableOut3.Text += "<tr>" +
                             "   <td>" + shiftType + "</td>" +
                             "   <td>" + r["Firstname"].ToString() + " " + (r["Middlename"].ToString() != "" ? (r["Middlename"].ToString()) + " " : "") + r["Lastname"].ToString() + "</td>" +
-                            "   <td>" + date + "</td>" +
-                            "   <td>" + r["StartTime"].ToString() + " - " + r["EndTime"].ToString() + "</td>" +
+                            "   <td>" + shiftDate + " kl. " + r["StartTime"].ToString() + " - " + r["EndTime"].ToString() + "</td>" +
+                            "   <td>" + (r["Note"].ToString() != "" ? r["Note"].ToString() : " - ") +"</td>" +
                             "</tr>";
 
             }
@@ -71,18 +71,18 @@ namespace Backend
             tableOut4.Text = "";
             List<SqlParameter> p = new List<SqlParameter>();
             p.Add(new SqlParameter("shiftId", Request["shiftid"].ToString()));
-            DataTable dt = db.GetDataSet("SELECT e.Firstname, e.Middlename, e.Lastname, s.IID, s.Date, s.StartTime, s.EndTime, s.Type, s.IsTrade FROM Employee e, Shift s WHERE s.IID = @shiftid AND s.EIID = e.IID", p).Table;
+            DataTable dt = db.GetDataSet("SELECT e.Firstname, e.Middlename, e.Lastname, s.IID, s.Date, s.StartTime, s.EndTime, s.Type, s.IsTrade, s.Note FROM Employee e, Shift s WHERE s.IID = @shiftid AND s.EIID = e.IID", p).Table;
             
             foreach (DataRow r in dt.Rows)
             {
-                string shiftType = convertShiftTypeToString(r["Type"].ToString());
-                string date = dateFormater(r["Date"].ToString());
+                string shiftType = (r["IsTrade"].ToString() == "1" ? "Byttevagt til " + this.convertShiftTypeToString(r["Type"].ToString().ToLower()) : this.convertShiftTypeToString(r["Type"].ToString().ToLower()));
+                string shiftDate = dateFormater(r["Date"].ToString());
 
                 tableOut4.Text += "<tr>" +
                             "   <td>" + shiftType + "</td>" +
                             "   <td>" + r["Firstname"].ToString() + " " + (r["Middlename"].ToString() != "" ? (r["Middlename"].ToString()) + " " : "") + r["Lastname"].ToString() + "</td>" +
-                            "   <td>" + date + "</td>" +
-                            "   <td>" + r["StartTime"].ToString() + " - " + r["EndTime"].ToString() + "</td>" +
+                            "   <td>" + shiftDate + " kl. " + r["StartTime"].ToString() + " - " + r["EndTime"].ToString() + "</td>" +
+                            "   <td>" + (r["Note"].ToString() != "" ? r["Note"].ToString() : " - ") + "</td>" +
                             "</tr>";
 
             }
@@ -102,14 +102,13 @@ namespace Backend
 
             foreach (DataRow r in dt.Rows)
             {
-                string shiftType = convertShiftTypeToString(r["Type"].ToString());
-                string date = dateFormater(r["Date"].ToString());
+                string shiftType = (r["IsTrade"].ToString() == "1" ? "Byttevagt til " + this.convertShiftTypeToString(r["Type"].ToString().ToLower()) : this.convertShiftTypeToString(r["Type"].ToString().ToLower()));
+                string shiftDate = dateFormater(r["Date"].ToString());
 
                 tableOut1.Text += "<tr>" +
                             "   <td>" + shiftType + "</td>" +
                             "   <td>" + r["Firstname"].ToString() + " " + (r["Middlename"].ToString() != "" ? (r["Middlename"].ToString()) + " " : "") + r["Lastname"].ToString() + "</td>" +
-                            "   <td>" + date + "</td>" +
-                            "   <td>" + r["StartTime"].ToString() + " - " + r["EndTime"].ToString() + "</td>";
+                            "   <td>" + shiftDate + " kl. " + r["StartTime"].ToString() + " - " + r["EndTime"].ToString() + "</td>";
 
                 if (r["IsTrade"].ToString() != "0")
                 {
@@ -139,14 +138,13 @@ namespace Backend
             DataTable dt2 = db.GetDataSet("SELECT e.Firstname, e.Middlename, e.Lastname, s.IID, s.Date, s.StartTime, s.EndTime, s.Type, s.IsTrade, s.TradeType FROM Employee e, Shift s, shiftToIndividual si WHERE s.EIID = e.IID AND s.SIID = @SIID AND s.EIID != @EIID AND (s.Type=1 OR s.Type=2) AND si.ShiftId = s.IID AND si.EIID = @EIID AND s.Inactive=0 ORDER BY Date;", p).Table;
             foreach (DataRow r in dt2.Rows)
             {
-                string shiftType = convertShiftTypeToString(r["Type"].ToString());
-                string date = dateFormater(r["Date"].ToString());
+                string shiftType = (r["IsTrade"].ToString() == "1" ? "Byttevagt til " + this.convertShiftTypeToString(r["Type"].ToString().ToLower()) : this.convertShiftTypeToString(r["Type"].ToString().ToLower()));
+                string shiftDate = dateFormater(r["Date"].ToString());
 
                 tableOut2.Text += "<tr>" +
                             "   <td>" + shiftType + "</td>" +
                             "   <td>" + r["Firstname"].ToString() + " " + (r["Middlename"].ToString() != "" ? (r["Middlename"].ToString()) + " " : "") + r["Lastname"].ToString() + "</td>" +
-                            "   <td>" + date + "</td>" +
-                            "   <td>" + r["StartTime"].ToString() + " - " + r["EndTime"].ToString() + "</td>";
+                            "   <td>" + shiftDate + " kl. " + r["StartTime"].ToString() + " - " + r["EndTime"].ToString() + "</td>";
                 if (r["IsTrade"].ToString() == "1")
                 {
                     switch (r["TradeType"].ToString())

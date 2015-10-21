@@ -73,7 +73,6 @@ namespace Backend.code
 
         public void ToggleShiftInactive(string shiftId)
         {
-
                 List<SqlParameter> p1 = new List<SqlParameter>();
                 p1.Add(new SqlParameter("ShiftId", shiftId));
                 DataTable dt1 = db.GetDataSet("SELECT * FROM Shift WHERE IID=@ShiftId", p1).Table;

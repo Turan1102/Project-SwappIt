@@ -59,8 +59,7 @@
                                             <tr>
                                                 <th><i class="fa fa-user"></i>Vagtens type</th>
                                                 <th><i class="fa fa-user"></i>Sælges af</th>
-                                                <th><i class="fa fa-calendar"></i>Vagtdato</th>
-                                                <th><i class="fa fa-clock-o"></i>Tid</th>
+                                                <th><i class="fa fa-calendar"></i>Vagttid</th>
                                                 <th><i class="fa fa-shopping-cart"></i>Køb</th>
                                             </tr>
                                         </thead>
@@ -89,8 +88,7 @@
                                             <tr>
                                                 <th><i class="fa fa-user"></i>Vagtens type</th>
                                                 <th><i class="fa fa-user"></i>Sælges af</th>
-                                                <th><i class="fa fa-calendar"></i>Vagtdato</th>
-                                                <th><i class="fa fa-clock-o"></i>Tid</th>
+                                                <th><i class="fa fa-calendar"></i>Vagttid</th>
                                                 <th><i class="fa fa-shopping-cart"></i>Køb</th>
                                             </tr>
                                         </thead>
@@ -136,8 +134,8 @@
                                     <tr>
                                         <th><i class="fa fa-user"></i>Vagtens type</th>
                                         <th><i class="fa fa-user"></i>Sælges af</th>
-                                        <th><i class="fa fa-calendar"></i>Vagtdato</th>
-                                        <th><i class="fa fa-clock-o"></i>Tid</th>
+                                        <th><i class="fa fa-calendar"></i>Vagttid</th>
+                                        <th><i class="fa fa-calendar"></i>Note</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -188,8 +186,8 @@
                                     <tr>
                                         <th><i class="fa fa-user"></i>Vagtens type</th>
                                         <th><i class="fa fa-user"></i>Sælges af</th>
-                                        <th><i class="fa fa-calendar"></i>Vagtdato</th>
-                                        <th><i class="fa fa-clock-o"></i>Tid</th>
+                                        <th><i class="fa fa-calendar"></i>Vagttid</th>
+                                        <th><i class="fa fa-calendar"></i>Note</th>
                                     </tr>
                                 </thead>
                                 <tbody>

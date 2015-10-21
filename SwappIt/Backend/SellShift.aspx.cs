@@ -28,17 +28,21 @@ namespace Backend
 
         protected void SellShift_Click(object sender, EventArgs e)
         {
-            this.CreateShiftSessions();
             LinkButton btn = (LinkButton)(sender);
             switch (btn.CommandArgument)
             {
                 case "0":
+                    this.CreateShiftSessions(0);
                         Response.Redirect("SellShift.aspx?shiftType=0");
                     break;
                 case "1":
+                    this.CreateShiftSessions(1);
+
                         Response.Redirect("SellShift.aspx?shiftType=1");
                     break;
                 case "2":
+                    this.CreateShiftSessions(2);
+
                         Response.Redirect("SellShift.aspx?shiftType=2");
                     break;
                 case "decline":
@@ -87,31 +91,41 @@ namespace Backend
         }
 
 
-        private void CreateShiftSessions()
+        private void CreateShiftSessions(int shiftType)
         {
+            switch (shiftType)
+            {
+                case 0:
+                    Session["shiftDate"] = shiftDate0.Value;
+                    Session["startTime"] = startTime0.Value;
+                    Session["endTime"] = endTime0.Value;
+                    Session["tradeType"] = convertTradeTypeToString(this.GetTradeTypeFromRadios("0"));
+                    Session["shiftNote"] = shiftNote0.Value;
+                    this.CreateSqlParameterSession("0", shiftDate0.Value, startTime0.Value, endTime0.Value, shiftNote0.Value);
+                    break;
+                case 1:
+                    Session["shiftDate"] = shiftDate1.Value;
+                    Session["startTime"] = startTime1.Value;
+                    Session["endTime"] = endTime1.Value;
+                    Session["tradeType"] = convertTradeTypeToString(this.GetTradeTypeFromRadios("1"));
+                    Session["shiftNote"] = shiftNote1.Value;
+                    this.CreateSqlParameterSession("1", shiftDate1.Value, startTime1.Value, endTime1.Value, shiftNote1.Value);
+                    break;
+                case 2:
+                    Session["shiftDate"] = shiftDate2.Value;
+                    Session["startTime"] = startTime2.Value;
+                    Session["endTime"] = endTime2.Value;
+                    Session["tradeType"] = convertTradeTypeToString(this.GetTradeTypeFromRadios("2"));
+                    Session["shiftNote"] = shiftNote2.Value;
+                    this.CreateSqlParameterSession("2", shiftDate2.Value, startTime2.Value, endTime2.Value, shiftNote2.Value);
+                    break;
+            }
 
-            Session["shiftDate0"] = shiftDate0.Value;
-            Session["startTime0"] = startTime0.Value;
-            Session["endTime0"] = endTime0.Value;
-            Session["tradeType0"] = convertTradeTypeToString(this.GetTradeTypeFromRadios("0"));
-            this.CreateSqlParameterSession("0", shiftDate0.Value, startTime0.Value, endTime0.Value);
-
-            Session["shiftDate1"] = shiftDate1.Value;
-            Session["startTime1"] = startTime1.Value;
-            Session["endTime1"] = endTime1.Value;
-            Session["tradeType1"] = convertTradeTypeToString(this.GetTradeTypeFromRadios("1"));
-            this.CreateSqlParameterSession("1", shiftDate1.Value, startTime1.Value, endTime1.Value);
-
-            Session["shiftDate2"] = shiftDate2.Value;
-            Session["startTime2"] = startTime2.Value;
-            Session["endTime2"] = endTime2.Value;
-            Session["tradeType2"] = convertTradeTypeToString(this.GetTradeTypeFromRadios("2"));
-            this.CreateSqlParameterSession("2", shiftDate2.Value, startTime2.Value, endTime2.Value);
 
             Session["IndividualDD"] = individualDD.Items;
         }
 
-        private void CreateSqlParameterSession(string shiftType, string date, string timeStart, string timeEnd)
+        private void CreateSqlParameterSession(string shiftType, string date, string timeStart, string timeEnd, string note)
         {
             List<SqlParameter> p = new List<SqlParameter>();
             p.Add(new SqlParameter("Date", date));
@@ -122,14 +136,15 @@ namespace Backend
             p.Add(new SqlParameter("Type", shiftType));
             p.Add(new SqlParameter("IsTrade", (this.GetTradeTypeFromRadios(shiftType) != "-1" ? "1" : "0")));
             p.Add(new SqlParameter("TradeType", this.GetTradeTypeFromRadios(shiftType)));
-            Session["SqlParameter" + shiftType] = p;
+            p.Add(new SqlParameter("Note", note));
+            Session["SqlParameter"] = p;
         }
 
         protected void SellShiftToAllButton_Click(object sender, EventArgs e)
         {
 
-            List<SqlParameter> p = (List<SqlParameter>)Session["SqlParameter0"];
-            string SQL = "INSERT INTO Shift (SIID, EIID, Date, StartTime, EndTime, Type, IsTrade, TradeType) VALUES (@SIID, @EIID, @Date, @StartTime, @EndTime, @Type, @IsTrade, @TradeType)";
+            List<SqlParameter> p = (List<SqlParameter>)Session["SqlParameter"];
+            string SQL = "INSERT INTO Shift (SIID, EIID, Date, StartTime, EndTime, Type, IsTrade, TradeType, Note) VALUES (@SIID, @EIID, @Date, @StartTime, @EndTime, @Type, @IsTrade, @TradeType,  @Note)";
             db.ExecuteInsert(SQL, p);         
 
         }
@@ -137,8 +152,8 @@ namespace Backend
         protected void SellShiftToIndividualButton_Click(object sender, EventArgs e)
         {
 
-            List<SqlParameter> p = (List<SqlParameter>)Session["SqlParameter1"];
-            string SQL = "INSERT INTO Shift (SIID, EIID, Date, StartTime, EndTime, Type, IsTrade, TradeType) VALUES (@SIID, @EIID, @Date, @StartTime, @EndTime, @Type, @IsTrade, @TradeType)";
+            List<SqlParameter> p = (List<SqlParameter>)Session["SqlParameter"];
+            string SQL = "INSERT INTO Shift (SIID, EIID, Date, StartTime, EndTime, Type, IsTrade, TradeType, Note) VALUES (@SIID, @EIID, @Date, @StartTime, @EndTime, @Type, @IsTrade, @TradeType, @Note)";
             int primaryKey = db.ExecuteInsert(SQL, p);
 
             p.Clear();
@@ -161,8 +176,8 @@ namespace Backend
 
         protected void SellShiftToCloseResponsibleButton_Click(object sender, EventArgs e)
         {
-            List<SqlParameter> p = (List<SqlParameter>)Session["SqlParameter2"];
-            string SQL = "INSERT INTO Shift (SIID, EIID, Date, StartTime, EndTime, Type, IsTrade, TradeType) VALUES (@SIID, @EIID, @Date, @StartTime, @EndTime, @Type, @IsTrade, @TradeType)";
+            List<SqlParameter> p = (List<SqlParameter>)Session["SqlParameter"];
+            string SQL = "INSERT INTO Shift (SIID, EIID, Date, StartTime, EndTime, Type, IsTrade, TradeType, Note) VALUES (@SIID, @EIID, @Date, @StartTime, @EndTime, @Type, @IsTrade, @TradeType, @Note)";
 
             int primaryKey = db.ExecuteInsert(SQL, p);
             p.Clear();

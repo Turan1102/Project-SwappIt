@@ -125,6 +125,15 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Valgfri note</label>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <textarea id="shiftNote0" class="form-control" rows="3" runat="server" placeholder="ex. Håber jeg kan få en vagt retur til min byttevagt i uge 38."></textarea>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-actions fluid">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -224,6 +233,15 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Valgfri note</label>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <textarea id="shiftNote1" class="form-control" rows="3" runat="server" placeholder="ex. Håber jeg kan få en vagt retur til min byttevagt i uge 38."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-actions fluid">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -316,6 +334,16 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Valgfri note</label>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <textarea id="shiftNote2" class="form-control" rows="3" runat="server" placeholder="ex. Håber jeg kan få en vagt retur til min byttevagt i uge 38."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-actions fluid">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -361,18 +389,16 @@
                     <table class="table table-striped table-bordered table-hover dataTable">
                         <thead>
                             <tr>
-                                <th><i class="fa fa-calendar-o"></i>Dato</th>
-                                <th><i class="fa fa-clock-o"></i>Starttid</th>
-                                <th><i class="fa fa-clock-o"></i>Sluttid</th>
+                                <th><i class="fa fa-calendar-o"></i>Vagttid</th>
                                 <th><i class="fa fa-clock-o"></i>Vagtens type</th>
+                                <th><i class="fa fa-clock-o"></i>Note</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><%=Session["shiftDate0"].ToString()%></td>
-                                <td><%=Session["startTime0"].ToString()%></td>
-                                <td><%=Session["endTime0"].ToString()%></td>
-                                <td><%=Session["tradeType0"].ToString()%></td>
+                                <td><%=Session["shiftDate"].ToString()%> kl. <%=Session["startTime"].ToString()%> - <%=Session["endTime"].ToString()%></td>
+                                <td><%=Session["tradeType"].ToString()%></td>
+                                <td><%=Session["shiftNote"].ToString()%></td>
                             </tr>
                         </tbody>
                     </table>
@@ -424,18 +450,16 @@
                     <table class="table table-striped table-bordered table-hover dataTable">
                         <thead>
                             <tr>
-                                <th><i class="fa fa-calendar-o"></i>Dato</th>
-                                <th><i class="fa fa-clock-o"></i>Starttid</th>
-                                <th><i class="fa fa-clock-o"></i>Sluttid</th>
+                                <th><i class="fa fa-calendar-o"></i>Vagttid</th>
                                 <th><i class="fa fa-clock-o"></i>Vagtens type</th>
+                                <th><i class="fa fa-clock-o"></i>Note</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><%=Session["shiftDate1"].ToString()%></td>
-                                <td><%=Session["startTime1"].ToString()%></td>
-                                <td><%=Session["endTime1"].ToString()%></td>
-                                <td><%=Session["tradeType1"].ToString()%></td>
+                                <td><%=Session["shiftDate"].ToString()%> kl. <%=Session["startTime"].ToString()%> - <%=Session["endTime"].ToString()%></td>
+                                <td><%=Session["tradeType"].ToString()%></td>
+                                <td><%=Session["shiftNote"].ToString()%></td>
                             </tr>
                         </tbody>
                     </table>
@@ -445,7 +469,7 @@
                         <table class="table table-striped table-bordered table-hover dataTable">
                             <thead>
                                 <tr>
-                                    <th><i class="fa fa-calendar-o"></i><%=Session["tradeType1"].ToString()%> til enkelte</th>
+                                    <th><i class="fa fa-calendar-o"></i><%=Session["tradeType"].ToString()%> til enkelte</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -512,18 +536,16 @@
                     <table class="table table-striped table-bordered table-hover dataTable">
                         <thead>
                             <tr>
-                                <th><i class="fa fa-calendar-o"></i>Dato</th>
-                                <th><i class="fa fa-clock-o"></i>Starttid</th>
-                                <th><i class="fa fa-clock-o"></i>Sluttid</th>
+                                <th><i class="fa fa-calendar-o"></i>Vagttid</th>
                                 <th><i class="fa fa-clock-o"></i>Vagtens type</th>
+                                <th><i class="fa fa-clock-o"></i>Note</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><%=Session["shiftDate2"].ToString()%></td>
-                                <td><%=Session["startTime2"].ToString()%></td>
-                                <td><%=Session["endTime2"].ToString()%></td>
-                                <td><%=Session["tradeType2"].ToString()%></td>
+                                <td><%=Session["shiftDate"].ToString()%> kl. <%=Session["startTime"].ToString()%> - <%=Session["endTime"].ToString()%></td>
+                                <td><%=Session["tradeType"].ToString()%></td>
+                                <td><%=Session["shiftNote"].ToString()%></td>
                             </tr>
                         </tbody>
                     </table>
@@ -614,6 +636,20 @@
         ga('send', 'pageview');
     </script>
     <script>
+
+        $("#radioTrade1").change(function () {
+
+            document.getElementById('noteFormGroup1').style.display = 'block';
+            document.getElementById('testlabel').innerHTML = "shit";
+        });
+
+
+        function radioClick() {
+            alert(';)');
+            document.getElementById('testlabel').innerHTML = "shit";
+            document.getElementById('noteFormGroup1').style.display = 'block';
+
+        }
 
         $('#btnSellToAll').click(function () {
 

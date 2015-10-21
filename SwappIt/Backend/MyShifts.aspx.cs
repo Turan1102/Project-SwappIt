@@ -112,7 +112,7 @@ namespace Backend
             // pick from database start
             List<SqlParameter> p = new List<SqlParameter>();
             p.Add(new SqlParameter("shiftId", shiftId));
-            DataTable dt1 = db.GetDataSet("SELECT e.Firstname, e.Middlename, e.Lastname, s.CreateTime, s.Date, s.StartTime, s.EndTime, s.Type, s.IsTrade, s.TradeType FROM Shift s, Employee e WHERE s.IID = @shiftId AND s.EIID = e.IID", p).Table;
+            DataTable dt1 = db.GetDataSet("SELECT e.Firstname, e.Middlename, e.Lastname, s.CreateTime, s.Date, s.StartTime, s.EndTime, s.Type, s.IsTrade, s.TradeType, s.Note FROM Shift s, Employee e WHERE s.IID = @shiftId AND s.EIID = e.IID", p).Table;
 
 
             DataTable dt2 = null;
@@ -156,6 +156,10 @@ namespace Backend
                 string shiftDate = dateFormater(r1["Date"].ToString()) + " kl. " + r1["StartTime"].ToString() + " - " + r1["EndTime"].ToString();
                 tableOut4.Text = this.CreateShiftDetailTableElement(tableOut4.Text, "Vagttid", shiftDate);
 
+                if (r1["Note"].ToString() != "")
+                {
+                    tableOut4.Text = this.CreateShiftDetailTableElement(tableOut4.Text, "Note fra sælger", r1["Note"].ToString());
+                }
 
                 if (r1["IsTrade"].ToString() == "1")
                 {

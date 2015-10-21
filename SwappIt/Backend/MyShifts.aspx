@@ -64,7 +64,7 @@
                                         <thead>
                                             <tr>
                                                 <th><i class="fa fa-user"></i>Købt af</th>
-                                                <th><i class="fa fa-calendar"></i>Vagtdato</th>
+                                                <th><i class="fa fa-calendar"></i>Vagttid</th>
                                                 <th><i class="fa fa-shopping-cart"></i>Købsdato</th>
                                                 <th><i class="fa fa-user"></i>Handlinger</th>
 
@@ -125,7 +125,7 @@
                                             <tr>
                                                 <th><i class="fa fa-user"></i>Vagtens type</th>
                                                 <th><i class="fa fa-calendar"></i>Dato for oprettelse</th>
-                                                <th><i class="fa fa-calendar"></i>Vagtdato</th>
+                                                <th><i class="fa fa-calendar"></i>Vagttid</th>
                                                 <th><i class="fa fa-user"></i>Handlinger</th>
                                             </tr>
                                         </thead>
@@ -168,16 +168,6 @@
 
                     <table class="table table-bordered table-striped">
                         <tbody>
-
-                            <%--                            <tr>
-                                <td>Repeating Pulsate
-                                </td>
-                                <td>
-                                    <div>
-                                        Repeating Pulsate
-                                    </div>
-                                </td>
-                            </tr>--%>
 
                             <asp:Literal ID="tableOut4" runat="server"></asp:Literal>
 

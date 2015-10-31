@@ -45,9 +45,8 @@
                                     <th><i class="fa fa-user"></i>Personale nummer</th>
                                     <th><i class="fa fa-user"></i>Navn</th>
                                     <th><i class="fa fa-user"></i>CPR</th>
-                                    <th><i class="fa fa-edit"></i>Ret</th>
+                                    <th><i class="fa fa-edit"></i>Lukkeansvarlig</th>
                                     <th><i class="fa fa-unlock-alt"></i>Aktiv</th>
-                                    <th><i class="fa fa-trash-o"></i>Slet</th>
                                 </tr>
                             </thead>
                             <tbody>

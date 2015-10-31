@@ -71,6 +71,25 @@ namespace Backend.code
             }
         }
 
+        public void ToggleCloseResponsible(string id)
+        {
+            if (ui.haveRights("slet"))
+            {
+                List<SqlParameter> p1 = new List<SqlParameter>();
+                p1.Add(new SqlParameter("IID", id));
+                DataTable dt1 = db.GetDataSet("SELECT * FROM Employee WHERE IID=@IID", p1).Table;
+                if (dt1.Rows.Count > 0)
+                {
+                    DataRow r = dt1.Rows[0];
+
+                    List<SqlParameter> p2 = new List<SqlParameter>();
+                    p2.Add(new SqlParameter("IID", id));
+                    p2.Add(new SqlParameter("CloseResponsible", (r["CloseResponsible"].ToString() == "1" ? "0" : "1")));
+                    db.ExecuteUpdate("UPDATE Employee SET CloseResponsible=@CloseResponsible WHERE IID=@IID", p2);
+                }
+            }
+        }
+
         public void ToggleShiftInactive(string shiftId)
         {
                 List<SqlParameter> p1 = new List<SqlParameter>();

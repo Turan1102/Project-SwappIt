@@ -176,6 +176,7 @@ namespace Backend
 
         protected void SellShiftToCloseResponsibleButton_Click(object sender, EventArgs e)
         {
+            // skal der tjekkes om han har rettigheder for salg til lukkeansvarlige?
             List<SqlParameter> p = (List<SqlParameter>)Session["SqlParameter"];
             string SQL = "INSERT INTO Shift (SIID, EIID, Date, StartTime, EndTime, Type, IsTrade, TradeType, Note) VALUES (@SIID, @EIID, @Date, @StartTime, @EndTime, @Type, @IsTrade, @TradeType, @Note)";
 

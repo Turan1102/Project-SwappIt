@@ -83,5 +83,22 @@ namespace Backend.code
             return false;
         }
 
+
+        public Boolean IsCloseResponsible()
+        {
+            List<SqlParameter> p = new List<SqlParameter>();
+            p.Add(new SqlParameter("EIID", id));
+            DataTable dt3 = db.GetDataSet("SELECT CloseResponsible FROM Employee WHERE IID=@EIID", p).Table;
+            foreach (DataRow r in dt3.Rows)
+            {
+                if (r["CloseResponsible"].ToString() == "1")
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
     }
 }

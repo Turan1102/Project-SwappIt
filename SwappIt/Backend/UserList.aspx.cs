@@ -16,9 +16,9 @@ namespace Backend
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (Request["deleteid"] != null)
+            if (Request["closeresponsibleid"] != null)
             {
-                Delete(Request["deleteid"].ToString());
+                ToggleCloseResponsible(Request["closeresponsibleid"].ToString());
             }
             if (Request["activateid"] != null)
             {
@@ -53,38 +53,18 @@ namespace Backend
             {
                 searchTotal.Text = "(Antal: " + dt.Rows.Count + ")";
             }
-            
+
             foreach (DataRow r in dt.Rows)
             {
                 tableOut.Text += "<tr>" +
                             "   <td>" + r["StaffNumber"].ToString() + "</td>" +
                             "   <td>" + r["Firstname"].ToString() + " " + (r["Middlename"].ToString() != "" ? (r["Middlename"].ToString()) + " " : "") + r["Lastname"].ToString() + "</td>" +
                             "   <td>" + r["CPR"].ToString() + "</td>" +
-
-                            "   <td>" + (ui.haveRights("slet") ? "<a href=\"UserEdit.aspx?id=" + r["IID"] + "\" class=\"btn default btn-xs yellow\"><i class=\"fa fa-edit\"></i> Ret</a>" : "") + "</td>" +
+                                                        "   <td>" + (ui.haveRights("slet") ? "<a href=\"UserList.aspx?closeresponsibleid=" + r["IID"] + "\" class=\"btn default btn-xs" + (r["CloseResponsible"].ToString() == "0" ? " green\"><i class=\"fa fa-unlock-alt\"></i> Ja" : " red\"><i class=\"fa fa-lock\"></i> Nej") + "</a>" : "") + "</td>" +
                             "   <td>" + (ui.haveRights("slet") ? "<a href=\"UserList.aspx?activateid=" + r["IID"] + "\" class=\"btn default btn-xs yellow\">" + (r["Inactive"].ToString() == "0" ? "<i class=\"fa fa-unlock-alt\"></i> Aktiv" : "<i class=\"fa fa-lock\"></i> Deaktiveret") + "</a>" : "") + "</td>" +
-                            "   <td>" + (ui.haveRights("slet") ? "<a href=\"UserList.aspx?deleteid=" + r["IID"]  + "\" class=\"btn default btn-xs red btn-confirm\"><i class=\"fa fa-trash-o\"></i> Slet</a>" : "") + "</td>" +
                             "</tr>";
             }
         }
-
-        public void Delete(string id)
-        {
-            if (ui.haveRights("slet"))
-            {
-                List<SqlParameter> p1 = new List<SqlParameter>();
-                p1.Add(new SqlParameter("IID", id));
-                DataTable dt1 = db.GetDataSet("SELECT * FROM Employee WHERE IID=@IID", p1).Table;
-                if (dt1.Rows.Count > 0)
-                {
-                    List<SqlParameter> p2 = new List<SqlParameter>();
-                    p2.Add(new SqlParameter("IID", id));
-                    db.ExecuteDelete("DELETE FROM Employee WHERE IID=@IID", p2);
-                    // AddToastrSucces("Slettet", "Bruger " + r["Name"] + " er blevet slettet");
-                }
-            }
-        }
-
 
     }
 }

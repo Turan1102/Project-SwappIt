@@ -44,9 +44,11 @@
                 <li class="">
                     <a href="#portlet_tab2_1" data-toggle="tab"><i class="fa fa-user"></i>Enkelte</a>
                 </li>
+                    <%  if (ui.IsCloseResponsible() || ui.IsLeader() ) { %>
                 <li class="">
                     <a href="#portlet_tab3_1" data-toggle="tab"><i class="fa fa-key"></i>Lukkevagter</a>
                 </li>
+                    <% } %>
             </ul>
         </div>
         <div class="portlet-body form">
